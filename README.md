@@ -1,4 +1,4 @@
-Symfony Standard Edition testatome tes 
+Symfony Standard Edition testatomehgf
 ========================
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony

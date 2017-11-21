@@ -19,14 +19,26 @@
 	<link href="assets/css/style.min.css" rel="stylesheet" />
 	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="css/style-spritz.css" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
 	<link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
 	<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
-    <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+	<link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
+	<link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+	<link href="assets/plugins/password-indicator/css/password-indicator.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-combobox/css/bootstrap-combobox.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+	<link href="assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
+
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="assets/plugins/pace/pace.min.js"></script>
@@ -45,7 +57,7 @@
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="index.php" class="navbar-brand"><span class="navbar-logo"></span> Weezjump</a>
+					<a href="login.php" class="navbar-brand"><img class="logo-top" src="img/logo-weezjump.png" title="" alt="" /> WeezJump</a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -65,8 +77,6 @@
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
-							<li><a href="javascript:;">Paramétres</a></li>
-							<li class="divider"></li>
 							<li><a href="javascript:;">Déconnexion</a></li>
 						</ul>
 					</li>
@@ -90,6 +100,7 @@
 					<li class="active"><a href="index.php"><i class="fa fa-calendar"></i> <span>Tableau de bord</span></a></li>
 					<li class=""><a href="users.php"><i class="fa fa-key"></i> <span>Utilisateurs</span></a></li>
 					<li class=""><a href="settings.php"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li>
+					<li class=""><a href="statistiques.php"><i class="fa fa-area-chart"></i> <span>Statistiques</span></a></li>
 					
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
@@ -106,7 +117,7 @@
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Accueil</a></li>
+				<li><a href="index.php">Accueil</a></li>
 				<li class="active">Tableau de bord</li>
 			</ol>
 			<!-- end breadcrumb -->
@@ -116,83 +127,141 @@
 			
 			<!-- begin row : Première ligne -->
 			<div class="row">
+				
 				<!-- begin col-6 -->
 			    <div class="col-md-6 col-sm-12">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#default-tab-1" data-toggle="tab">Date du jour</a></li>
 						<li class=""><a href="#default-tab-2" data-toggle="tab">Détails entrées</a></li>
-						<li class=""><a href="#default-tab-3" data-toggle="tab">Détails sessions</a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane fade active in" id="default-tab-1">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-								est diam sagittis orci, a ornare nisi quam elementum tortor. Proin interdum ante porta est convallis 
-								dapibus dictum in nibh. Aenean quis massa congue metus mollis fermentum eget et tellus. 
-								Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, nec eleifend orci eros id lectus.
-							</p>
-							
+							<div class="panel-body panel-form">
+	                            <form method="" action="" class="form-horizontal form-bordered">
+									<div class="form-group">
+										<label class="control-label col-md-4">Nous sommes le</label>
+										<div class="col-md-8">
+	                                        <div class="input-group date" id="datetimepicker1">
+	                                            <input type="text" class="form-control" />
+	                                            <span class="input-group-addon">
+	                                                <span class="glyphicon glyphicon-calendar"></span>
+	                                            </span>
+	                                        </div>
+										</div>
+									</div>
+								</form>
+	                        </div>
 						</div>
 						<div class="tab-pane fade" id="default-tab-2">
-							<p>
-								Nullam ac sapien justo. Nam augue mauris, malesuada non magna sed, feugiat blandit ligula. 
-								In tristique tincidunt purus id iaculis. Pellentesque volutpat tortor a mauris convallis, 
-								sit amet scelerisque lectus adipiscing.
-							</p>
-						</div>
-						<div class="tab-pane fade" id="default-tab-3">
-							<p>
-								Sed at lacinia augue. Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla. 
-								Quisque adipiscing dui nec orci fermentum blandit.
-							</p>
-						</div>
+							<table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Type d'entrée</th>
+                                        <th>Quantité</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+	                                <tr>
+                                        <td>Entrées totales</td>
+							            <td><a href="#" class="btn btn-sm btn-default" >288</a></td>
+							        </tr>
+							        <tr>
+                                        <td>Sessions</td>
+							            <td><a href="#" class="btn btn-sm btn-default" >12 / 26</a></td>
+							        </tr>
+                                    <tr>
+                                        <td>Entrées A</td>
+							            <td><a href="#" class="btn btn-sm btn-success" >160</a></td>
+							        </tr>
+							        <tr>
+							            <td>Entrées B</td>
+							            <td><a href="#" class="btn btn-sm btn-success" >30</a></td>
+							        </tr>
+							        <tr>
+							            <td>Entrées C</td>
+							            <td><a href="#" class="btn btn-sm btn-success" >40</a></td>
+							        </tr>
+							        <tr>
+							            <td>Entrées D</td>
+							            <td><a href="#" class="btn btn-sm btn-success" >58</a></td>
+							        </tr>
+                                </tbody>
+                            </table>						
+                        </div>
 					</div>
 					
 				</div>
 				
-				
 					<div class="col-md-3 col-sm-6">
-						<div class="widget widget-stats bg-blue">
-							<div class="stats-icon"><i class="fa fa-chain-broken"></i></div>
-							<div class="stats-info">
-								<h4>BOUNCE RATE</h4>
-								<p>20.44%</p>	
-							</div>
-							<div class="stats-link">
-								<a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
-							</div>
-						</div>
+						<div class="widget widget-stats bg-green">
+				            <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
+				            <div class="stats-title">VISITEURS ACTIFS</div>
+				            <div class="stats-number">58</div>
+				            <div class="stats-progress progress">
+	                            <div class="progress-bar" style="width: 58%;"></div>
+	                        </div>
+	                        <div class="stats-desc">Total du jour : 288</div>
+				        </div>
 					</div>
 					<div class="col-md-3 col-sm-6">
-						<div class="widget widget-stats bg-blue">
-							<div class="stats-icon"><i class="fa fa-chain-broken"></i></div>
-							<div class="stats-info">
-								<h4>BOUNCE RATE</h4>
-								<p>20.44%</p>	
-							</div>
-							<div class="stats-link">
-								<a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
-							</div>
-						</div>
+						<div class="widget widget-stats bg-purple">
+				            <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
+				            <div class="stats-title">PLACES RESTANTES</div>
+				            <div class="stats-number">25</div>
+				            <div class="stats-progress progress">
+	                            <div class="progress-bar" style="width: 25%;"></div>
+	                        </div>
+	                        <div class="stats-desc"><a href="#" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
+				        </div>
 					</div>
 				
 			</div>
 			<!-- end row -->
+			
+			<!-- Titre calendrier -->
+			<h3>Vos créneaux</h3>
+			<p class="m-b-20">
+			    Ci-dessous la liste des créneaux configurés pour la journée en cours. Vous pouvez modifier, mettre en sommeil et réactiver les créneaux de votre choix.
+			</p>
+			
 			<!-- begin row : Ligne calendrier -->
 			<div class="row">
-				<!-- begin col-12 -->
-				<div class="col-md-12">
-					<div class="panel panel-inverse" data-sortable-id="index-1">
-						<div class="panel-heading">
-							<h4 class="panel-title">Vos créneaux</h4>
-						</div>
-						<div class="panel-body">
-							
+				
+				<!-- The Modal : Popup permettant de choisir la quantité de personnes à enregistrer -->
+				<div class="modal fade" id="myModal" role="dialog">
+				    <div class="modal-dialog modal-sm">
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">Enregistrement participant</h4>
+				        </div>
+				        <div class="modal-body">
+				          <p>Veuillez choisir la quantité de participants à enregistrer pour la session choisie.</p>
+				          <p><strong>Type sélectionné : </strong>Standard</p>
+				          
+				        </div>
+				        <div class="modal-footer">
+				          <div class="input-group number-spinner">
+								<span class="input-group-btn">
+									<button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+								</span>
+								<input type="text" class="form-control text-center" value="1">
+								<span class="input-group-btn">
+									<button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+								</span>
+							</div>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+  
 							<!-- Démarrage de la boucle -->
-							<div class="col-md-3">
+							<div class="col-md-4">
+								<?php 	$color_top_panel = 'warning';
+										$color_body_panel = 'orange';
+								?>
 								<!-- begin panel -->
-			                    <div class="panel panel-warning" data-sortable-id="ui-widget-16">
+			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
 			                        <div class="panel-heading">
 			                            <div class="panel-heading-btn">
 			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
@@ -202,19 +271,141 @@
 			                            </div>
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 10h00 - 11h00</h4>
 			                        </div>
-			                        <div class="panel-body bg-orange text-white">
-			                            <p>Panel Content Here</p>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60</div>
+				                                    </div>
+				                                </div>
+				                             </form>
 			                        </div>
 			                    </div>
 							</div>
 							<!-- Fin de la boucle -->
 							
-						</div>
-					</div>
-					
-				</div>
-				<!-- end col-12 -->
-				
+							
+							<div class="col-md-4">
+								<?php 	$color_top_panel = 'primary';
+										$color_body_panel = 'blue';
+								?>
+								<!-- begin panel -->
+			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 11h00 - 12h00</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$color_top_panel = 'success';
+										$color_body_panel = 'green';
+								?>
+								<!-- begin panel -->
+			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 12h00 - 13h00</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$color_top_panel = 'info';
+										$color_body_panel = 'aqua';
+								?>
+								<!-- begin panel -->
+			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 13h00 - 14h00</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+						
 			</div>
 			<!-- end row -->
 		</div>
@@ -318,24 +509,34 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
-	<script src="assets/plugins/flot/jquery.flot.min.js"></script>
-	<script src="assets/plugins/flot/jquery.flot.time.min.js"></script>
-	<script src="assets/plugins/flot/jquery.flot.resize.min.js"></script>
-	<script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
-	<script src="assets/plugins/sparkline/jquery.sparkline.js"></script>
-	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	<script src="assets/js/dashboard.min.js"></script>
+	<script src="assets/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+	<script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+	<script src="assets/plugins/masked-input/masked-input.min.js"></script>
+	<script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/plugins/password-indicator/js/password-indicator.js"></script>
+	<script src="assets/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+	<script src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+	<script src="assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/moment.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="assets/js/form-plugins.demo.min.js"></script>
 	<script src="assets/js/apps.min.js"></script>
+	<script src="js/js-spritz.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
 		$(document).ready(function() {
 			App.init();
-			Dashboard.init();
+			FormPlugins.init();
 		});
 	</script>
+	
+
+
 </body>
 </html>

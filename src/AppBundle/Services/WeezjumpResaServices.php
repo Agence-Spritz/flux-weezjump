@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use DateTime;
+use AppBundle\Entity\Creneau;
 
 class WeezjumpResaServices {
 
@@ -53,34 +54,7 @@ class WeezjumpResaServices {
             echo "Unable to select mydbname: " . mysql_error();
             exit;
         }
-
-//        mysql_close($this->connection);
     }
-
-//    public function checkSemaine(){
-//        
-//         $sql = "SELECT *        FROM   semaine";
-//
-//        $result = mysql_query($sql, $this->connection);
-//
-//        if (!$result) {
-//            echo "Could not successfully run query ($sql) from DB: " . mysql_error();
-//            exit;
-//        }
-//
-//        if (mysql_num_rows($result) == 0) {
-//            echo "No rows found, nothing to print so am exiting";
-//            exit;
-//        }
-//
-//        while ($row = mysql_fetch_assoc($result)) {
-//            echo $row["jour"];
-//        }
-//
-//        mysql_free_result($result);
-//        
-//    }
-
 
     public function checkHeureOuvertureFermeture(\DateTime $date = null) {
 
@@ -117,6 +91,27 @@ class WeezjumpResaServices {
             $fermeture->modify('+' . $heure_fermeture . 'hours');
 
         return array('ouverture' => $ouverture, 'fermeture' => $fermeture);
+    }
+
+    public function checkQuantiteReserveeCreneau(Creneau $creneau) {
+
+        $count = 0;
+
+        $dateTimeDebut = $creneau->getDebut();
+        if (!$dateTimeDebut)
+            return;
+
+        $sql = "SELECT SUM(nbClient) AS nbClient 
+                FROM reservationclient 
+                WHERE dateResa = '" . $dateTimeDebut->format('Y-m-d') . "' AND heureResa = '" . $dateTimeDebut->format('H:i:s') . "';";
+
+        $result = mysql_query($sql, $this->connection);
+        while ($row = mysql_fetch_assoc($result)) {
+            $count = $row["nbClient"];
+        }
+        mysql_free_result($result);
+
+        return $count;
     }
 
 }

@@ -1,0 +1,19 @@
+/* 
+Styles ajoutés par Spritz
+*/
+
+img.logo-top {
+	display: inline-block; 
+	margin-right: 10px;
+}
+
+.widget.widget-stats.bg-purple .stats-desc a:link, .widget.widget-stats.bg-purple .stats-desc a:visited {
+	color: #fff;
+}
+
+.places-restantes {
+	display: block;
+	width: 100%;
+	margin-top: 3px;
+}
+

@@ -1,0 +1,24 @@
+jour_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Jour:index" }
+    methods:  GET
+
+jour_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Jour:show" }
+    methods:  GET
+
+jour_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Jour:new" }
+    methods:  [GET, POST]
+
+jour_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Jour:edit" }
+    methods:  [GET, POST]
+
+jour_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Jour:delete" }
+    methods:  DELETE

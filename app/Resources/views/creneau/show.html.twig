@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Creneau</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ creneau.id }}</td>
+            </tr>
+            <tr>
+                <th>Debut</th>
+                <td>{% if creneau.debut %}{{ creneau.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ creneau.duree }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if creneau.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ creneau.couleur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('creneau_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('creneau_edit', { 'id': creneau.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

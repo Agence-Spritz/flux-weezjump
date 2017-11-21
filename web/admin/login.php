@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Login Page</title>
+	<title>Gestion de flux Weezjump | Login</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -37,8 +37,8 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span> Color Admin
-                    <small>responsive bootstrap 3 admin template</small>
+                    <img src="img/logo-main.png" title="Application de gestion de flux utilisateurs" alt="Application de gestion de flux utilisateurs"/> WeezJump
+                    <small>Application de gestion de flux utilisateurs</small>
                 </div>
                 <div class="icon">
                     <i class="fa fa-sign-in"></i>
@@ -48,18 +48,18 @@
             <div class="login-content">
                 <form action="index.html" method="POST" class="margin-bottom-0">
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Email Address" />
+                        <input type="text" class="form-control input-lg" placeholder="Adresse email" />
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Password" />
+                        <input type="text" class="form-control input-lg" placeholder="Mot de passe" />
                     </div>
                     <div class="checkbox m-b-20">
                         <label>
-                            <input type="checkbox" /> Remember Me
+                            <input type="checkbox" /> Se souvenir de moi
                         </label>
                     </div>
                     <div class="login-buttons">
-                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Connexion</button>
                     </div>
                 </form>
             </div>

@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+    
+    database_resa_host: 'localhost'
+    database_resa_user: 'root'
+    database_resa_password: null
+    database_resa_name: 'weezjump_resa'

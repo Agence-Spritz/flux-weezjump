@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Jours list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Day</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>Maximum</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jour in jours %}
+            <tr>
+                <td><a href="{{ path('jour_show', { 'id': jour.id }) }}">{{ jour.id }}</a></td>
+                <td>{% if jour.day %}{{ jour.day|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if jour.debut %}{{ jour.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if jour.fin %}{{ jour.fin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ jour.maximum }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('jour_show', { 'id': jour.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('jour_edit', { 'id': jour.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jour_new') }}">Create a new jour</a>
+        </li>
+    </ul>
+{% endblock %}

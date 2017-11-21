@@ -4,6 +4,11 @@ parameters:
     #parameter_name: value
 
 services:
-    #service_name:
-    #    class: AppBundle\Directory\ClassName
-    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+   
+    weezjump.resa.services:
+        class: AppBundle\Services\WeezjumpResaServices
+        arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]
+   
+    creation.jour.services:
+        class: AppBundle\Services\CreationJourServices
+        arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]

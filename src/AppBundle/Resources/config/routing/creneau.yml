@@ -1,0 +1,24 @@
+creneau_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Creneau:index" }
+    methods:  GET
+
+creneau_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Creneau:show" }
+    methods:  GET
+
+creneau_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Creneau:new" }
+    methods:  [GET, POST]
+
+creneau_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Creneau:edit" }
+    methods:  [GET, POST]
+
+creneau_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Creneau:delete" }
+    methods:  DELETE

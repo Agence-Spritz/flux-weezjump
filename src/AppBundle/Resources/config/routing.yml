@@ -2,3 +2,15 @@ app_user:
     resource: "@AppBundle/Resources/config/routing/user.yml"
     prefix:   /user
 
+app_jour:
+    resource: "@AppBundle/Resources/config/routing/jour.yml"
+    prefix:   /jour
+
+app_creneau:
+    resource: "@AppBundle/Resources/config/routing/creneau.yml"
+    prefix:   /creneau
+
+app_categorie:
+    resource: "@AppBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+

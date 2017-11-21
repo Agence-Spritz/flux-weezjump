@@ -5,13 +5,13 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Register Page</title>
+	<title>Gestion de flux Weezjump | Enregistrement utilisateur</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
 	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -19,97 +19,178 @@
 	<link href="assets/css/style.min.css" rel="stylesheet" />
 	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<link href="css/style-spritz.css" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+	<link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
+	<link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+	<link href="assets/plugins/password-indicator/css/password-indicator.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-combobox/css/bootstrap-combobox.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+	<link href="assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
-<body class="pace-top bg-white">
+<body>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
 	<!-- begin #page-container -->
-	<div id="page-container" class="fade">
-	    <!-- begin register -->
-        <div class="register register-with-news-feed">
-            <!-- begin news-feed -->
-            <div class="news-feed">
-                <div class="news-image">
-                    <img src="assets/img/login-bg/bg-8.jpg" alt="" />
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+			<!-- begin container-fluid -->
+			<div class="container-fluid">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+					<a href="index.php" class="navbar-brand"><img class="logo-top" src="img/logo-weezjump.png" title="" alt="" /> WeezJump</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					
+					
+					<li class="dropdown navbar-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="assets/img/user-13.jpg" alt="" /> 
+							<span class="hidden-xs">Sébastien Fuger</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<li><a href="javascript:;">Déconnexion</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					<li class="nav-header">Navigation</li>
+					
+					<li class=""><a href="index.php"><i class="fa fa-calendar"></i> <span>Tableau de bord</span></a></li>
+					<li class="active"><a href="users.php"><i class="fa fa-key"></i> <span>Utilisateurs</span></a></li>
+					<li class=""><a href="settings.php"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li>
+					<li class=""><a href="statistiques.php"><i class="fa fa-area-chart"></i> <span>Statistiques</span></a></li>
+					
+			        <!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+			        <!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			<ol class="breadcrumb pull-right">
+				<li><a href="index.php">Accueil</a></li>
+				<li class="active">Utilisateurs</li>
+				<li class="active">Enregistrement</li>
+			</ol>
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header">Nouvel utilisateur</h1>
+			<!-- end page-header -->
+			
+			<!-- begin row : Première ligne -->
+			<div class="row">
+				<!-- begin col-6 -->
+			    <div class="col-md-12">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-validation-1">
+                        <div class="panel-heading">
+                            
+                            <h4 class="panel-title">Informations nouvel utilisateur</h4>
+                        </div>
+                        <div class="panel-body panel-form">
+                            <form class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+	                            <div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="fullname">Login * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="login" name="login" placeholder="Login souhaité" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="fullname">Nom * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="nom" name="nom" placeholder="Nom" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="fullname">Prénom * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="prenom" name="prenom" placeholder="Prénom" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="email">Email * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="email" name="email" data-parsley-type="email" placeholder="Email" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="message">Rôle * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="role" name="role" data-parsley-type="role" placeholder="Role" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="message">Mot de passe * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="password" id="mdp" name="mdp" data-parsley-type="mdp" placeholder="Mot de passe" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4"></label>
+									<div class="col-md-6 col-sm-6">
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+									</div>
+								</div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end panel -->
                 </div>
-                <div class="news-caption">
-                    <h4 class="caption-title"><i class="fa fa-edit text-success"></i> Announcing the Color Admin app</h4>
-                    <p>
-                        As a Color Admin Apps administrator, you use the Color Admin console to manage your organization’s account, such as add new users, manage security settings, and turn on the services you want your team to access.
-                    </p>
-                </div>
-            </div>
-            <!-- end news-feed -->
-            <!-- begin right-content -->
-            <div class="right-content">
-                <!-- begin register-header -->
-                <h1 class="register-header">
-                    Sign Up
-                    <small>Create your Color Admin Account. It’s free and always will be.</small>
-                </h1>
-                <!-- end register-header -->
-                <!-- begin register-content -->
-                <div class="register-content">
-                    <form action="index.html" method="POST" class="margin-bottom-0">
-                        <label class="control-label">Name</label>
-                        <div class="row row-space-10">
-                            <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="First name" />
-                            </div>
-                            <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="Last name" />
-                            </div>
-                        </div>
-                        <label class="control-label">Email</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Email address" />
-                            </div>
-                        </div>
-                        <label class="control-label">Re-enter Email</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Re-enter email address" />
-                            </div>
-                        </div>
-                        <label class="control-label">Password</label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Password" />
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" /> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Data Policy</a>, including our <a href="#">Cookie Use</a>.
-                            </label>
-                        </div>
-                        <div class="register-buttons">
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
-                        </div>
-                        <div class="m-t-20 m-b-40 p-b-40">
-                            Already a member? Click <a href="login_v3.html">here</a> to login.
-                        </div>
-                        <hr />
-                        <p class="text-center text-inverse">
-                            &copy; Color Admin All Right Reserved 2015
-                        </p>
-                    </form>
-                </div>
-                <!-- end register-content -->
-            </div>
-            <!-- end right-content -->
-        </div>
-        <!-- end register -->
-        
+								
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- end #content -->
+		
         <!-- begin theme-panel -->
         <div class="theme-panel">
             <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
@@ -186,6 +267,10 @@
             </div>
         </div>
         <!-- end theme-panel -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
 	
@@ -204,13 +289,34 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="assets/plugins/ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+	<script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+	<script src="assets/plugins/masked-input/masked-input.min.js"></script>
+	<script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/plugins/password-indicator/js/password-indicator.js"></script>
+	<script src="assets/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+	<script src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+	<script src="assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/moment.js"></script>
+    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="assets/js/form-plugins.demo.min.js"></script>
 	<script src="assets/js/apps.min.js"></script>
+	<script src="js/js-spritz.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-
+	
 	<script>
 		$(document).ready(function() {
 			App.init();
+			FormPlugins.init();
 		});
 	</script>
+	
+
+
 </body>
 </html>

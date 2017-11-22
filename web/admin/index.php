@@ -193,7 +193,7 @@
 				</div>
 				
 					<div class="col-md-3 col-sm-6">
-						<div class="widget widget-stats bg-green">
+						<div class="widget widget-stats bg-purple">
 				            <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 				            <div class="stats-title">VISITEURS ACTIFS</div>
 				            <div class="stats-number">58</div>
@@ -241,16 +241,20 @@
 				          
 				        </div>
 				        <div class="modal-footer">
-				          	<div class="input-group number-spinner">
-								<span class="input-group-btn">
-									<button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
-								</span>
-								<input type="text" class="form-control text-center" value="1">
-								<span class="input-group-btn">
-									<button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
-								</span>
+					        <div class="col-md-12">
+					          	<div class="input-group number-spinner">
+									<span class="input-group-btn">
+										<button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+									</span>
+									<input type="text" class="form-control text-center" value="1">
+									<span class="input-group-btn">
+										<button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+									</span>
+								</div>
+					        </div>
+							<div style="margin-top: 15px;" class="col-md-12">
+								<button type="submit" class="btn btn-block btn-primary">Valider</button>
 							</div>
-							<input type="submit">
 				        </div>
 				      </div>
 				    </div>
@@ -258,15 +262,12 @@
   
 							<!-- Démarrage de la boucle -->
 							<div class="col-md-4">
-								<?php 	$couleur = 'rose';
-								?>
+								<?php 	$couleur = 'orange'; ?>
 								<!-- begin panel -->
-			                    <div class="panel panel-warning <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
 			                        <div class="panel-heading">
 			                            <div class="panel-heading-btn">
-			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
-			                                
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
 			                            </div>
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 10h00 - 11h00</h4>
@@ -296,21 +297,17 @@
 							
 							
 							<div class="col-md-4">
-								<?php 	$color_top_panel = 'primary';
-										$color_body_panel = 'blue';
-								?>
+								<?php 	$couleur = 'rouge'; ?>
 								<!-- begin panel -->
-			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
 			                        <div class="panel-heading">
 			                            <div class="panel-heading-btn">
-			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
-			                                
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
 			                            </div>
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 10h30 - 11h30</h4>
 			                        </div>
-			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                             <form class="form-horizontal">
 				                                <div class="form-group">
 				                                    <div class="col-md-9">
@@ -333,21 +330,17 @@
 							</div>
 							
 							<div class="col-md-4">
-								<?php 	$color_top_panel = 'success';
-										$color_body_panel = 'green';
-								?>
+								<?php 	$couleur = 'jaune'; ?>
 								<!-- begin panel -->
-			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
 			                        <div class="panel-heading">
 			                            <div class="panel-heading-btn">
-			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
-			                                
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
 			                            </div>
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 12h00 - 13h00</h4>
 			                        </div>
-			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                             <form class="form-horizontal">
 				                                <div class="form-group">
 				                                    <div class="col-md-9">
@@ -370,16 +363,12 @@
 							</div>
 							
 							<div class="col-md-4">
-								<?php 	$color_top_panel = 'info';
-										$color_body_panel = 'aqua';
-								?>
+								<?php 	$couleur = 'violet'; ?>
 								<!-- begin panel -->
-			                    <div class="panel panel-<?php echo $color_top_panel; ?>" data-sortable-id="ui-widget-16">
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
 			                        <div class="panel-heading">
 			                            <div class="panel-heading-btn">
-			                               	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"><i class="fa fa-cog"></i></a>
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
-			                                
 			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
 			                            </div>
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 12h30 - 13h30</h4>
@@ -405,6 +394,172 @@
 			                        </div>
 			                    </div>
 							</div>
+							
+							<div class="col-md-4">
+								<?php 	$couleur = 'rose'; ?>
+								<!-- begin panel -->
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 13h00 - 13h30</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$couleur = 'vert'; ?>
+								<!-- begin panel -->
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 13h30 - 14h30</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$couleur = 'marron'; ?>
+								<!-- begin panel -->
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 14h00 - 15h00</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$couleur = 'bleu'; ?>
+								<!-- begin panel -->
+			                    <div class="panel creneau <?php echo $couleur; ?>" data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 14h30 - 15h30</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+							
+							<div class="col-md-4">
+								<?php 	$couleur = 'bleu'; ?>
+								<!-- begin panel -->
+			                    <div class="panel creneau <?php echo $couleur; ?> grisee"  data-sortable-id="ui-widget-16">
+			                        <div class="panel-heading">
+			                            <div class="panel-heading-btn">
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+			                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+			                            </div>
+			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 15h00 - 16h00</h4>
+			                        </div>
+			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> grisee text-white">
+				                             <form class="form-horizontal">
+				                                <div class="form-group">
+				                                    <div class="col-md-9">
+				                                        <select class="form-control" disabled="disable">
+				                                            <option>Standard</option>
+				                                            <option>Groupe</option>
+				                                            <option>Gratuit</option>
+				                                            <option>Baby Weez</option>
+				                                            <option>Laser Weez</option>
+				                                        </select>
+				                                        
+				                                    </div>
+				                                    <div class="col-md-3">
+					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+				                                    </div>
+				                                </div>
+				                             </form>
+			                        </div>
+			                    </div>
+							</div>
+
 						
 			</div>
 			<!-- end row -->

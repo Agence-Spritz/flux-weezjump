@@ -242,7 +242,11 @@
                         </select>
                     </div>
                 </div>
-                
+                <div class="row m-t-10">
+                    <div class="col-md-12">
+                        <a href="#" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage"><i class="fa fa-refresh m-r-3"></i> Réinitialiser</a>
+                    </div>
+                </div>
             </div>
         </div>
 

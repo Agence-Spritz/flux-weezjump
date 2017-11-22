@@ -17,6 +17,94 @@ img.logo-top {
 	margin-top: 3px;
 }
 
+.creneau {
+	color: #ffffff;
+}
+
+/* Couleur rouge */
+.rouge {
+	background-color: rgba(242,4,32,0.5);
+}
+
+.rouge >.panel-heading {
+	background-color: rgba(242,4,32,1);
+}
+
+/* Couleur Orange */
+.orange {
+	background-color: rgba(245,156,26,0.5);
+}
+
+.orange >.panel-heading {
+	background-color: rgba(245,156,26,1);
+}
+
+/* Couleur Jaune */
+.jaune {
+	background-color: rgba(255,202,67,0.5);
+}
+
+.jaune >.panel-heading {
+	background-color: rgba(255,202,67,1);
+}
+
+/* Couleur Violet */
+.violet {
+	background-color: rgba(163,0,90,0.5);
+}
+
+.violet >.panel-heading {
+	background-color: rgba(163,0,90,1);
+}
+
+/* Couleur Rose */
 .rose {
-	background-color: #f843ff;
+	background-color: rgba(242,0,136,0.5);
+}
+
+.rose >.panel-heading {
+	background-color: rgba(242,0,136,1);
+}
+
+/* Couleur Vert */
+.vert {
+	background-color: rgba(0,166,90,0.5);
+}
+
+.vert >.panel-heading {
+	background-color: rgba(0,166,90,1);
+}
+
+/* Couleur Marron */
+.marron {
+	background-color: rgba(126,45,7,0.5);
+}
+
+.marron >.panel-heading {
+	background-color: rgba(126,45,7,1);
+}
+
+/* Couleur Bleu */
+.bleu {
+	background-color: rgba(0,115,183,0.5);
+}
+
+.bleu >.panel-heading {
+	background-color: rgba(0,115,183,1);
+}
+
+
+/* Classe Grisée : objet désactivé */
+.grisee {
+	background-color: rgba(204,204,204,0.5);
+	color: #eee;
+}
+
+.grisee >.panel-heading {
+	background-color: rgba(204,204,204,1);
+	color: #eee;
+}
+
+.grisee .places-restantes {
+	display: none;
 }

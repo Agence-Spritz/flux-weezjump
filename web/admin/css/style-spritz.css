@@ -108,3 +108,7 @@ img.logo-top {
 .grisee .places-restantes {
 	display: none;
 }
+
+form.form-horizontal:after {
+	display: none;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Valeurcategories list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for valeurCategorie in valeurCategories %}
+            <tr>
+                <td><a href="{{ path('valeurcategorie_show', { 'id': valeurCategorie.id }) }}">{{ valeurCategorie.id }}</a></td>
+                <td>{{ valeurCategorie.quantite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('valeurcategorie_show', { 'id': valeurCategorie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('valeurcategorie_edit', { 'id': valeurCategorie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('valeurcategorie_new') }}">Create a new valeurCategorie</a>
+        </li>
+    </ul>
+{% endblock %}

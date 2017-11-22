@@ -1,10 +1,10 @@
 creneau_index:
-    path:     /
+    path:     /jour/{id}
     defaults: { _controller: "AppBundle:Creneau:index" }
     methods:  GET
 
 creneau_show:
-    path:     /{id}/show
+    path:     /show/{id}
     defaults: { _controller: "AppBundle:Creneau:show" }
     methods:  GET
 
@@ -14,11 +14,11 @@ creneau_new:
     methods:  [GET, POST]
 
 creneau_edit:
-    path:     /{id}/edit
+    path:     /edit/{id}
     defaults: { _controller: "AppBundle:Creneau:edit" }
     methods:  [GET, POST]
 
 creneau_delete:
-    path:     /{id}/delete
+    path:     /delete/{id}
     defaults: { _controller: "AppBundle:Creneau:delete" }
     methods:  DELETE

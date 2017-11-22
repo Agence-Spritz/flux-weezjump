@@ -24,7 +24,7 @@ class JourController extends Controller {
         $date = new \DateTime();
         $date->modify('+1day');
         $CreationJourServices->creerJour($date);
-        for ($i = 2; $i <= 300; $i++) {
+        for ($i = 2; $i <= 30; $i++) {
             $date->modify('+1day');
             $CreationJourServices->creerJour($date);
         }

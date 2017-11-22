@@ -41,4 +41,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+            
+            {{ render(controller('AppBundle:Creneau:index', { 'jour': jour } )) }}
+            
 {% endblock %}

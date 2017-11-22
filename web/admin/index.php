@@ -275,7 +275,15 @@
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -283,10 +291,6 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
 				                            </form>
@@ -308,9 +312,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 10h30 - 11h30</h4>
 			                        </div>
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -318,13 +330,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -341,9 +349,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 12h00 - 13h00</h4>
 			                        </div>
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -351,13 +367,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -374,9 +386,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 12h30 - 13h30</h4>
 			                        </div>
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -384,13 +404,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -407,9 +423,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 13h00 - 13h30</h4>
 			                        </div>
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -417,13 +441,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -440,9 +460,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 13h30 - 14h30</h4>
 			                        </div>
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -450,13 +478,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -473,9 +497,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 14h00 - 15h00</h4>
 			                        </div>
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -483,13 +515,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>
@@ -506,9 +534,17 @@
 			                            <h4 class="panel-title"><i class="fa fa-calendar"></i> 14h30 - 15h30</h4>
 			                        </div>
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
-				                             <form class="form-horizontal">
+				                            <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+				                                    </div>
+				                                    <div class="col-md-6">
+					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    
+				                                    <div style="margin-top: 15px;" class="col-md-12">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -516,13 +552,9 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
-				                             </form>
+				                            </form>
 			                        </div>
 			                    </div>
 							</div>

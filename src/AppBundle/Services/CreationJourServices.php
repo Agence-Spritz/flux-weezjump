@@ -40,7 +40,10 @@ class CreationJourServices {
         
         $this->em->persist($jour);
         $this->em->flush();
-
+        $this->em->refresh($jour);
+        
+        $creationCreneauServices = $this->container->get('creation.creneau.services');
+        $creationCreneauServices->creerCreneauxDuJour($jour);
 
     }
 

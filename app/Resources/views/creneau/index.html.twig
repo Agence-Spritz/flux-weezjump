@@ -1,21 +1,19 @@
-{% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Creneaus list</h1>
+<h1>Creneaux list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Debut</th>
-                <th>Duree</th>
-                <th>Active</th>
-                <th>Couleur</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for creneau in creneaus %}
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Debut</th>
+            <th>Duree</th>
+            <th>Active</th>
+            <th>Couleur</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for creneau in creneaux %}
             <tr>
                 <td><a href="{{ path('creneau_show', { 'id': creneau.id }) }}">{{ creneau.id }}</a></td>
                 <td>{% if creneau.debut %}{{ creneau.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -34,12 +32,12 @@
                 </td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-    <ul>
-        <li>
-            <a href="{{ path('creneau_new') }}">Create a new creneau</a>
-        </li>
-    </ul>
-{% endblock %}
+<ul>
+    <li>
+        <a href="{{ path('creneau_new') }}">Create a new creneau</a>
+    </li>
+</ul>
+

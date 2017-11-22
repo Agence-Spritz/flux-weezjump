@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Creneau;
+use AppBundle\Entity\Jour;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,18 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CreneauController extends Controller
 {
-    /**
-     * Lists all creneau entities.
-     *
-     */
-    public function indexAction()
+    
+    public function indexAction(Request $request, Jour $jour)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $creneaus = $em->getRepository('AppBundle:Creneau')->findAll();
+        $creneaux = $em->getRepository('AppBundle:Creneau')->findBy(array ('jour' => $jour));
 
         return $this->render('creneau/index.html.twig', array(
-            'creneaus' => $creneaus,
+            'creneaux' => $creneaux,
         ));
     }
 

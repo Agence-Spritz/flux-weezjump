@@ -22,3 +22,5 @@ parameters:
     database_resa_user: 'root'
     database_resa_password: null
     database_resa_name: 'weezjump_resa'
+
+    couleurs: [rose, orange, jaune, violet, rouge, vert, marron, bleu]

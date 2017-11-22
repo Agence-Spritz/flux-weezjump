@@ -12,3 +12,7 @@ services:
     creation.jour.services:
         class: AppBundle\Services\CreationJourServices
         arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]
+   
+    creation.creneau.services:
+        class: AppBundle\Services\CreationCreneauServices
+        arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]

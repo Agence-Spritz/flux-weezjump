@@ -667,11 +667,11 @@ var handleResetLocalStorage = function() {
         '                <h4 class="modal-title"><i class="fa fa-refresh m-r-5"></i> Reset Local Storage Confirmation</h4>'+
         '            </div>'+
         '            <div class="modal-body">'+
-        '                <div class="alert alert-info m-b-0">Would you like to RESET all your saved widgets and clear Local Storage?</div>'+
+        '                <div class="alert alert-info m-b-0">Voulez-vous réinitialiser les réglages ?</div>'+
         '            </div>'+
         '            <div class="modal-footer">'+
-        '                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal"><i class="fa fa-close"></i> No</a>'+
-        '                <a href="javascript:;" class="btn btn-sm btn-inverse" data-click="confirm-reset-local-storage"><i class="fa fa-check"></i> Yes</a>'+
+        '                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal"><i class="fa fa-close"></i> Non</a>'+
+        '                <a href="javascript:;" class="btn btn-sm btn-inverse" data-click="confirm-reset-local-storage"><i class="fa fa-check"></i> Oui</a>'+
         '            </div>'+
         '        </div>'+
         '    </div>'+

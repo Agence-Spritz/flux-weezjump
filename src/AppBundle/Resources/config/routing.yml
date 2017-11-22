@@ -14,3 +14,7 @@ app_categorie:
     resource: "@AppBundle/Resources/config/routing/categorie.yml"
     prefix:   /categorie
 
+app_valeurcategorie:
+    resource: "@AppBundle/Resources/config/routing/valeurcategorie.yml"
+    prefix:   /valeurcategorie
+

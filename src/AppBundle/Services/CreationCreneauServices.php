@@ -55,10 +55,34 @@ class CreationCreneauServices {
         $creneau->setDebut($debutCreneau);
         $creneau->setDuree(1);
         $creneau->setActive(1);
-        $creneau->setCouleur('red');
+        $creneau->setCouleur($this->trouverCouleur($creneau));
 
         $this->em->persist($creneau);
         $this->em->flush();
+    }
+
+    private function trouverCouleur(Creneau $creneau) {
+
+        $array_couleur = $this->container->getParameter('couleurs');
+
+        $debutCreneau = $creneau->getDebut();
+        $debutCreneau->modify('-30minutes');
+        $creneau_precedent = $this->em->getRepository('AppBundle:Creneau')->findOneByDebut($debutCreneau);
+        if ($creneau_precedent and $couleur_a_supprimer = $creneau_precedent->getCouleur())
+            $array_couleur = array_filter($array_couleur, function ($value) use ($couleur_a_supprimer) {
+                return $value != $couleur_a_supprimer;
+            }, ARRAY_FILTER_USE_BOTH);
+
+        $debutCreneau->modify('+60minutes');
+        $creneau_suivant = $this->em->getRepository('AppBundle:Creneau')->findOneByDebut($debutCreneau);
+        if ($creneau_suivant and $couleur_a_supprimer = $creneau_suivant->getCouleur())
+            $array_couleur = array_filter($array_couleur, function ($value) use ($couleur_a_supprimer) {
+                return $value != $couleur_a_supprimer;
+            }, ARRAY_FILTER_USE_BOTH);
+
+        shuffle($array_couleur);
+        if (count($array_couleur))
+            return $array_couleur[0];
     }
 
 }

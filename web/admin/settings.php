@@ -125,6 +125,33 @@
 			<h1 class="page-header">Paramètres</h1>
 			<!-- end page-header -->
 			
+			<!-- begin row -->
+			<div class="row">
+                <!-- begin col-12 -->
+			    <div class="col-md-12">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Quantité maximale de participants</h4>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Quantité maximale de participants</label>
+                                    <div class="col-md-9">
+                                        <input type="text" value="80" class="form-control" placeholder="Default input" />
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
+			</div>
+			
+			
 			<!-- begin row : Première ligne -->
 			<div class="row">
 				
@@ -198,6 +225,10 @@
 			    </div>		
 			</div>
 			<!-- end row -->
+			
+			
+                
+                
 		</div>
 		<!-- end #content -->
 		

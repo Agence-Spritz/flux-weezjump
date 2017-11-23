@@ -141,78 +141,91 @@
 	                        	<form method="" action="" class="">
 									<div class="form-group">
 										
-											<label>Jour</label>
-	                                        <div class="input-group date" id="datetimepicker1">
-	                                            <input type="text" class="form-control" />
-	                                            <span class="input-group-addon">
-	                                                <span class="glyphicon glyphicon-calendar"></span>
-	                                            </span>
-	                                        </div>
+										<!-- Choix du jour -->
+										<label>Jour</label>
+                                        <div class="input-group date" id="datetimepicker1">
+                                            <input type="text" class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
 	                                        
-	                                        <label>Session</label>
-	                                        <div class="input-group date" id="datetimepicker1">
-	                                            <input type="text" class="form-control" />
-	                                            <span class="input-group-addon">
-	                                                <span class="glyphicon glyphicon-calendar"></span>
-	                                            </span>
-	                                        </div>
+	                                        <!-- Statistiques globales jour -->
+	                                        <table  id="data-table" class="m-t-15 table table-striped table-bordered">
+				                                <thead>
+				                                    <tr>
+				                                        <th>Entrées totales</th>
+				                                        <th>Nombre de sessions</th>
+				                                        <th>Disponibilité totale jour</th>
+				                                        <th>Entrées payantes</th>
+				                                    </tr>
+				                                </thead>
+				                                <tbody>
+				                                    <tr class="odd gradeX">
+				                                        <td>288</td>
+				                                        <td>26</td>
+				                                        <td>2000</td>
+				                                        <td>260</td>
+				                                    </tr>
+				                                </tbody>
+				                            </table>
+										
+										<!-- Choix d'une session sur le jour sélectionné -->
+                                        <label class="control-label">Session</label>
+	                                    <div class="">
+	                                        <select class="form-control">
+	                                            <option value="id">10h00 - 11h00</option>
+	                                            <option value="id">10h30 - 11h30</option>
+	                                            <option value="id">11h00 - 12h00</option>
+	                                            <option value="id">11h30 - 12h30</option>
+	                                            <option value="id">12h00 - 13h00</option>
+	                                            <option value="id">12h30 - 13h30</option>
+	                                        </select>
+	                                    </div>
 										
 									</div>
 								</form>
 	                        
-	                        
+	                        <!-- Statistiques liées à la session-->
                             <table id="data-table" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
+                                        <th>Type de tarif</th>
+                                        <th>Places vendues</th>
+                                        <th>%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td>4</td>
-                                        <td>X</td>
+                                        <td>Entrée classique</td>
+                                        <td>30</td>
+                                        <td>27%</td>
+                                        
                                     </tr>
                                     <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
+                                        <td>Baby weez</td>
+                                        <td>10</td>
+                                        <td>15%</td>
+                                    </tr>
+                                    <tr class="odd gradeA">
+                                        <td>Partie gratuite</td>
                                         <td>5</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td>5.5</td>
-                                        <td>A</td>
+                                        <td>8%</td>
                                     </tr>
                                     <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td>6</td>
-                                        <td>A</td>
+                                        <td>Centre aéré</td>
+                                        <td>12</td>
+                                        <td>20%</td>
                                     </tr>
                                     <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td>7</td>
-                                        <td>A</td>
+                                        <td>Tarifs groupe</td>
+                                        <td>15</td>
+                                        <td>20%</td>
                                     </tr>
                                     <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td>6</td>
-                                        <td>A</td>
+                                        <td>Formule entreprise</td>
+                                        <td>20</td>
+                                        <td>25%</td>
                                     </tr>
                                     
                                     

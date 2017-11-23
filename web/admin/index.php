@@ -252,7 +252,7 @@
 									</span>
 								</div>
 					        </div>
-							<div style="margin-top: 15px;" class="col-md-12">
+							<div class="col-md-12 m-t-15">
 								<button type="submit" class="btn btn-block btn-primary">Valider</button>
 							</div>
 				        </div>
@@ -283,7 +283,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -322,7 +322,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -359,7 +359,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -396,7 +396,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -433,7 +433,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -470,7 +470,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -507,7 +507,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -544,7 +544,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>

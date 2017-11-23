@@ -211,7 +211,7 @@
 				            <div class="stats-progress progress">
 	                            <div class="progress-bar" style="width: 25%;"></div>
 	                        </div>
-	                        <div class="stats-desc"><a href="#" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
+	                        <div class="stats-desc"><a href="settings.php" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
 				        </div>
 					</div>
 				

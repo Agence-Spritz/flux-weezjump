@@ -21,3 +21,32 @@ $(document).on('click', '.number-spinner button', function (e) {
 	btn.closest('.number-spinner').find('input').val(newVal);
         e.preventDefault();
 });
+// Système de notification, messages d'alerte
+var handleGritterNotification = function() {
+	
+	$('#add-without-image').click(function(){
+		$.gritter.add({
+			title: 'Message de notification, à personnaliser dans js-spritz',
+			text: 'This will fade out after a certain amount of time.'
+		});
+		$("#myModal").modal('hide');
+		return false;
+	});
+	
+	$("#remove-all").click(function(){
+		$.gritter.removeAll();
+		return false;
+	});
+	
+};
+
+
+var Notification = function () {
+	"use strict";
+    return {
+        //main function
+        init: function () {
+            handleGritterNotification();
+        }
+    };
+}();

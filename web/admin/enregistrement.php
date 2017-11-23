@@ -139,19 +139,19 @@
                         <div class="panel-body panel-form">
                             <form class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
 	                            <div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Login * :</label>
+									<label class="control-label col-md-4 col-sm-4" for="login">Login * :</label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" type="text" id="login" name="login" placeholder="Login souhaité" data-parsley-required="true" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Nom * :</label>
+									<label class="control-label col-md-4 col-sm-4" for="nom">Nom * :</label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" type="text" id="nom" name="nom" placeholder="Nom" data-parsley-required="true" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="fullname">Prénom * :</label>
+									<label class="control-label col-md-4 col-sm-4" for="prenom">Prénom * :</label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" type="text" id="prenom" name="prenom" placeholder="Prénom" data-parsley-required="true" />
 									</div>
@@ -163,13 +163,13 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message">Rôle * :</label>
+									<label class="control-label col-md-4 col-sm-4" for="role">Rôle * :</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" id="role" name="role" data-parsley-type="role" placeholder="Role" data-parsley-required="true" />
+										<input class="form-control" type="text" id="role" name="role" placeholder="Role" data-parsley-required="true" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="message">Mot de passe * :</label>
+									<label class="control-label col-md-4 col-sm-4" for="mdp">Mot de passe * :</label>
 									<div class="col-md-6 col-sm-6">
 										<input class="form-control" type="password" id="mdp" name="mdp" data-parsley-type="mdp" placeholder="Mot de passe" data-parsley-required="true" />
 									</div>

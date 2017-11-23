@@ -39,10 +39,14 @@
     <link href="assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
 
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />	
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+	
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -226,7 +230,7 @@
 			
 			<!-- begin row : Ligne calendrier -->
 			<div class="row">
-				
+				<form>
 				<!-- The Modal : Popup permettant de choisir la quantité de personnes à enregistrer -->
 				<div class="modal fade" id="myModal" role="dialog">
 				    <div class="modal-dialog modal-sm">
@@ -252,13 +256,14 @@
 									</span>
 								</div>
 					        </div>
-							<div style="margin-top: 15px;" class="col-md-12">
-								<button type="submit" class="btn btn-block btn-primary">Valider</button>
+							<div class="col-md-12 m-t-15">
+								<button type="submit" id="add-without-image" class="btn btn-block btn-primary">Valider</button>
 							</div>
 				        </div>
 				      </div>
 				    </div>
 				  </div>
+				</form>
   
 							<!-- Démarrage de la boucle -->
 							<div class="col-md-4">
@@ -283,7 +288,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -322,7 +327,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -359,7 +364,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -396,7 +401,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -433,7 +438,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -470,7 +475,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -507,7 +512,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -544,7 +549,7 @@
 				                                    </div>
 				                                    <div class="clearfix"></div>
 				                                    
-				                                    <div style="margin-top: 15px;" class="col-md-12">
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -699,10 +704,15 @@
 	<script src="js/js-spritz.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
 	<script>
 		$(document).ready(function() {
 			App.init();
 			FormPlugins.init();
+			Notification.init();
 		});
 	</script>
 	

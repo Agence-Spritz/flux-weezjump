@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Gestion de flux Weezjump | Paramètres</title>
+	<title>Gestion de flux Weezjump | Enregistrement tarif</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -119,116 +119,69 @@
 			<ol class="breadcrumb pull-right">
 				<li><a href="index.php">Accueil</a></li>
 				<li class="active">Paramètres</li>
+				<li class="active">Enregistrement</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Paramètres</h1>
+			<h1 class="page-header">Nouveau tarif</h1>
 			<!-- end page-header -->
 			
-			<!-- begin row -->
+			<!-- begin row : Première ligne -->
 			<div class="row">
-                <!-- begin col-12 -->
+				<!-- begin col-6 -->
 			    <div class="col-md-12">
 			        <!-- begin panel -->
-                    <div class="panel panel-inverse" data-sortable-id="form-stuff-1">
+                    <div class="panel panel-inverse" data-sortable-id="form-validation-1">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Quantité maximale de participants</h4>
+                            
+                            <h4 class="panel-title">Informations nouveau tarif</h4>
                         </div>
-                        <div class="panel-body">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Quantité maximale de participants</label>
-                                    <div class="col-md-9">
-                                        <input type="text" value="80" class="form-control" placeholder="Default input" />
-                                    </div>
-                                </div>
-                                
+                        <div class="panel-body panel-form">
+                            <form class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+	                            <div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="symbole">Symbole * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="symbole" name="symbole" placeholder="Symbole souhaité" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="nom">Nom * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="nom" name="nom" placeholder="Nom" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="description">Description * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="description" name="description" placeholder="Description succinte" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="duree">Durée * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="duree" name="duree" placeholder="Duree" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4" for="nombre">Nombre de participants * :</label>
+									<div class="col-md-6 col-sm-6">
+										<input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre de participants" data-parsley-required="true" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-4"></label>
+									<div class="col-md-6 col-sm-6">
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+									</div>
+								</div>
                             </form>
                         </div>
                     </div>
                     <!-- end panel -->
                 </div>
-                <!-- end col-12 -->
-			</div>
-			
-			
-			<!-- begin row : Première ligne -->
-			<div class="row">
-				
-				<!-- begin col-12 -->
-			    <div class="col-md-12">
-			        <!-- begin panel -->
-                    <div class="panel panel-inverse" data-sortable-id="table-basic-1">
-                        <div class="panel-heading">
-                            
-                            <h4 class="panel-title">Gestion des tarifs</h4>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                        <th>Durée (en H)</th>
-                                        <th>Nbr de personnes</th>
-                                        <th><i class="fa fa-cog"></i></th>
-                                        <th><i class="fa fa-trash"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>I</td>
-                                        <td>Entrée classique</td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td><a href="#" title="Modifier ce tarif"><i class="fa fa-pencil"></i></a></td>
-                                        <td><a href="#" title="Supprimer ce tarif"><i class="fa fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>X</td>
-                                        <td>Entrée classique après 20h</td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td><a href="#" title="Modifier ce tarif"><i class="fa fa-pencil"></i></a></td>
-                                        <td><a href="#" title="Supprimer ce tarif"><i class="fa fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>R</td>
-                                        <td>2ème session</td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td><a href="#" title="Modifier ce tarif"><i class="fa fa-pencil"></i></a></td>
-                                        <td><a href="#" title="Supprimer ce tarif"><i class="fa fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>X</td>
-                                        <td>Baby weez</td>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td><a href="#" title="Modifier ce tarif"><i class="fa fa-pencil"></i></a></td>
-                                        <td><a href="#" title="Supprimer ce tarif"><i class="fa fa-trash"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- end panel -->
-			    </div>
-			    
-			    <div class="col-md-12">
-				    <a href="tarifs.php"><div class="btn btn-primary m-r-5">Nouveau tarif</div></a>
-			    </div>		
+								
 			</div>
 			<!-- end row -->
-			
-			
-                
-                
 		</div>
 		<!-- end #content -->
 		

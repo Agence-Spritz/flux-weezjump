@@ -1,1 +1,194 @@
 {% extends 'layout.html.twig' %}
+
+
+{% block content %}
+    <!-- begin #content -->
+    <div id="content" class="content">
+        <!-- begin breadcrumb -->
+        <ol class="breadcrumb pull-right">
+            <li><a href="">Accueil</a></li>
+            <li class="active">Tableau de bord</li>
+        </ol>
+        <!-- end breadcrumb -->
+        <!-- begin page-header -->
+        <h1 class="page-header">Tableau de bord</h1>
+        <!-- end page-header -->
+
+        <!-- begin row : Première ligne -->
+        <div class="row">
+
+            <!-- begin col-6 -->
+            <div class="col-md-6 col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#default-tab-1" data-toggle="tab">Date du jour</a></li>
+                    <li class=""><a href="#default-tab-2" data-toggle="tab">Détails entrées</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="default-tab-1">
+                        <div class="panel-body panel-form">
+                            <form method="GET" action="" class="form-horizontal form-bordered" id="form_jour_date">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Nous sommes le</label>
+                                    <div class="col-md-8">
+                                        <div class="input-group date" id="datetimepicker_jour">
+                                            <input type="text" class="form-control" value="{{ jour.day|date('Y-m-d') }}" id="form_jour_date_input"/>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="default-tab-2">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Type d'entrée</th>
+                                    <th>Quantité</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Entrées totales</td>
+                                    <td><a href="#" class="btn btn-sm btn-default" >288</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Sessions</td>
+                                    <td><a href="#" class="btn btn-sm btn-default" >12 / 26</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Entrées A</td>
+                                    <td><a href="#" class="btn btn-sm btn-success" >160</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Entrées B</td>
+                                    <td><a href="#" class="btn btn-sm btn-success" >30</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Entrées C</td>
+                                    <td><a href="#" class="btn btn-sm btn-success" >40</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Entrées D</td>
+                                    <td><a href="#" class="btn btn-sm btn-success" >58</a></td>
+                                </tr>
+                            </tbody>
+                        </table>						
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-purple">
+                    <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
+                    <div class="stats-title">VISITEURS ACTIFS</div>
+                    <div class="stats-number">58</div>
+                    <div class="stats-progress progress">
+                        <div class="progress-bar" style="width: 58%;"></div>
+                    </div>
+                    <div class="stats-desc">Total du jour : 288</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-purple">
+                    <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
+                    <div class="stats-title">PLACES RESTANTES</div>
+                    <div class="stats-number">25</div>
+                    <div class="stats-progress progress">
+                        <div class="progress-bar" style="width: 25%;"></div>
+                    </div>
+                    <div class="stats-desc"><a href="#" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+
+        <!-- Titre calendrier -->
+        <h3>Vos créneaux</h3>
+        <p class="m-b-20">
+            Ci-dessous la liste des créneaux configurés pour la journée en cours. Vous pouvez modifier, mettre en sommeil et réactiver les créneaux de votre choix.
+        </p>
+
+        <!-- begin row : Ligne calendrier -->
+        <div class="row">
+
+            <!-- The Modal : Popup permettant de choisir la quantité de personnes à enregistrer -->
+            <div class="modal fade" id="myModal" role="dialog"></div>
+
+            {% for creneau in jour.getCreneaux %}
+                {{ render(controller('AppBundle:Creneau:show', { 'id': creneau.id } )) }}
+            {% endfor %}
+
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end #content -->
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#datetimepicker_jour').datetimepicker({
+            defaultDate: "{{ jour.day|date('Y-m-d') }}",
+            format: 'YYYY-MM-DD'
+        {#                locale: 'fr'#}
+            });
+
+            function reloadHomepage() {
+                var date = $('#form_jour_date_input').val();
+                var url = "{{ path('homepage') }}" + date;
+                window.location.replace(url);
+            }
+
+            var xhr;
+
+            $(document).on('submit', '#form_jour_date', function (e) {
+                e.preventDefault();
+                reloadHomepage();
+            });
+            $("#datetimepicker_jour").on("dp.change", function (e) {
+                reloadHomepage();
+            });
+            $(".number-spinner button").on("click", function (e) {
+                e.preventDefault();
+            });
+
+            $(document).on('change', 'select.select_categorie', function (e) {
+                var id_creneau = $(this).data('id_creneau');
+                var id_categorie = $(this).val();
+
+                xhr = $.ajax({
+                    type: "GET",
+                    url: "/valeurcategorie/new/" + id_creneau + "/" + id_categorie,
+                    success: function (html) {
+                        $('#myModal').empty().html(html).modal('show');
+                    },
+                    error: function (xhr) {
+
+                    }
+                });
+            });
+
+            $(document).on('submit', '#myModal form', function (e) {
+                e.preventDefault();
+                var form = $(this);
+                xhr = $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    success: function (html) {
+                        $('#myModal').empty().modal('hide');
+                    },
+                    error: function (xhr) {
+                    }
+                });
+            });
+
+    </script>
+{% endblock %}

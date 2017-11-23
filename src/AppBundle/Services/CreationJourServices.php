@@ -31,20 +31,22 @@ class CreationJourServices {
 
         $weezjumpResaServices = $this->container->get('weezjump.resa.services');
         $heures_ouverture_fermeture = $weezjumpResaServices->checkHeureOuvertureFermeture($date);
-        
+
         $jour = new Jour();
         $jour->setDay($date);
         $jour->setDebut($heures_ouverture_fermeture['ouverture']);
         $jour->setFin($heures_ouverture_fermeture['fermeture']);
         $jour->setMaximum(15);
-        
+
         $this->em->persist($jour);
         $this->em->flush();
         $this->em->refresh($jour);
-        
+
         $creationCreneauServices = $this->container->get('creation.creneau.services');
         $creationCreneauServices->creerCreneauxDuJour($jour);
 
+        $this->em->refresh($jour);
+        return $jour;
     }
 
 }

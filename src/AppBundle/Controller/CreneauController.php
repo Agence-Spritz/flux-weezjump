@@ -55,11 +55,12 @@ class CreneauController extends Controller
      */
     public function showAction(Creneau $creneau)
     {
-        $deleteForm = $this->createDeleteForm($creneau);
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
 
         return $this->render('creneau/show.html.twig', array(
             'creneau' => $creneau,
-            'delete_form' => $deleteForm->createView(),
+            'categories' => $categories,
         ));
     }
 

@@ -19,7 +19,7 @@ app_valeurcategorie:
     prefix:   /valeurcategorie
     
 homepage:
-    path:     /
-    defaults: { _controller: "AppBundle:Default:index" }
+    path:     /{date}
+    defaults: { _controller: "AppBundle:Default:index" , date: null}
     methods:  GET    
 

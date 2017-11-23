@@ -1,41 +1,29 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Creneau</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ creneau.id }}</td>
-            </tr>
-            <tr>
-                <th>Debut</th>
-                <td>{% if creneau.debut %}{{ creneau.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Duree</th>
-                <td>{{ creneau.duree }}</td>
-            </tr>
-            <tr>
-                <th>Active</th>
-                <td>{% if creneau.active %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Couleur</th>
-                <td>{{ creneau.couleur }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('creneau_edit', { 'id': creneau.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
+<div class="col-md-4" id="creneau_{{ creneau.id }}">
+    {% set couleur = creneau.couleur %}
+    <!-- begin panel -->
+    <div class="panel creneau {{ couleur }}" data-sortable-id="ui-widget-16">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"><i class="fa fa-repeat"></i></a>
+                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger"><i class="fa fa-times"></i></a>
+            </div>
+            <h4 class="panel-title"><i class="fa fa-calendar"></i>{{ creneau.debut|date('H\\hi') }} - {{ creneau.getFin ? creneau.getFin|date('H\\hi') : '' }}</h4>
+        </div>
+        <div class="panel-body {{ couleur }} text-white">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-9">
+                        <select class="form-control select_categorie"  data-id_creneau="{{ creneau.id }}">
+                            {% for categorie in categories %}
+                                <option value="{{ categorie.id }}">{{ categorie.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

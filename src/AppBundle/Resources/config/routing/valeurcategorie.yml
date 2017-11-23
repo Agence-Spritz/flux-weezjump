@@ -9,9 +9,9 @@ valeurcategorie_show:
     methods:  GET
 
 valeurcategorie_new:
-    path:     /new
+    path:     /new/{id_creneau}/{id_categorie}
     defaults: { _controller: "AppBundle:ValeurCategorie:new" }
-    methods:  [GET, POST]
+    methods:  [GET]
 
 valeurcategorie_edit:
     path:     /{id}/edit

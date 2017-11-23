@@ -5,17 +5,35 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use \DateTime;
 
-class DefaultController extends Controller
-{
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
+class DefaultController extends Controller {
+
+    public function indexAction(Request $request, $date = null) {
+        if (!$date)
+            $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d 00:00:00'));
+        else
+            $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date . ' 00:00:00');
+        
+        if(!$dateTime instanceof DateTime)
+             return $this->redirectToRoute('fos_user_security_login');
+        
+        
+        $em = $this->getDoctrine()->getManager();
+
+
+        $jour = $em->getRepository('AppBundle:Jour')->findOneByDay($dateTime);
+        if (!$jour) {
+            $CreationJourServices = $this->get('creation.jour.services');
+            $jour = $CreationJourServices->creerJour($dateTime);
+        }
+
+        if(!$jour)
+             return $this->redirectToRoute('fos_user_security_login');
+
         return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+                    'jour' => $jour,
         ));
     }
+
 }

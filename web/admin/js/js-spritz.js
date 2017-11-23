@@ -1,10 +1,10 @@
 $(document).ready(function(){
     
-        $("#myModal").modal('show');
+//        $("#myModal").modal('show');
     
 });
 
-$(document).on('click', '.number-spinner button', function () {    
+$(document).on('click', '.number-spinner button', function (e) {    
 	var btn = $(this),
 		oldValue = btn.closest('.number-spinner').find('input').val().trim(),
 		newVal = 0;
@@ -19,4 +19,5 @@ $(document).on('click', '.number-spinner button', function () {
 		}
 	}
 	btn.closest('.number-spinner').find('input').val(newVal);
+        e.preventDefault();
 });

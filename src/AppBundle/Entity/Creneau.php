@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use \DateTime;
 
 /**
  * Creneau
@@ -66,6 +67,10 @@ class Creneau {
     public function __construct() {
         $this->valeurCategories = new ArrayCollection();
     }
+    
+    public function __toString() {
+        return (string) $this->id;
+    }
 
     public function getQuantite($symbole = null) {
         if (!$symbole)
@@ -85,7 +90,7 @@ class Creneau {
             }
         return null;
     }
-    
+
     /**
      * Get id
      *
@@ -115,6 +120,14 @@ class Creneau {
      */
     public function getDebut() {
         return $this->debut;
+    }
+
+    public function getFin() {
+        if (!$this->debut or ! $this->duree)
+            return null;
+        $fin = DateTime::createFromFormat('U', $this->debut->format('U'));
+        $fin->modify('+' . $this->duree . 'hour');
+        return $fin;
     }
 
     /**
@@ -183,7 +196,6 @@ class Creneau {
         return $this->couleur;
     }
 
-
     /**
      * Set jour
      *
@@ -191,8 +203,7 @@ class Creneau {
      *
      * @return Creneau
      */
-    public function setJour(\AppBundle\Entity\Jour $jour = null)
-    {
+    public function setJour(\AppBundle\Entity\Jour $jour = null) {
         $this->jour = $jour;
 
         return $this;
@@ -203,8 +214,7 @@ class Creneau {
      *
      * @return \AppBundle\Entity\Jour
      */
-    public function getJour()
-    {
+    public function getJour() {
         return $this->jour;
     }
 
@@ -215,8 +225,7 @@ class Creneau {
      *
      * @return Creneau
      */
-    public function addValeurCategory(\AppBundle\Entity\ValeurCategorie $valeurCategory)
-    {
+    public function addValeurCategory(\AppBundle\Entity\ValeurCategorie $valeurCategory) {
         $this->valeurCategories[] = $valeurCategory;
 
         return $this;
@@ -227,8 +236,7 @@ class Creneau {
      *
      * @param \AppBundle\Entity\ValeurCategorie $valeurCategory
      */
-    public function removeValeurCategory(\AppBundle\Entity\ValeurCategorie $valeurCategory)
-    {
+    public function removeValeurCategory(\AppBundle\Entity\ValeurCategorie $valeurCategory) {
         $this->valeurCategories->removeElement($valeurCategory);
     }
 
@@ -237,8 +245,8 @@ class Creneau {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getValeurCategories()
-    {
+    public function getValeurCategories() {
         return $this->valeurCategories;
     }
+
 }

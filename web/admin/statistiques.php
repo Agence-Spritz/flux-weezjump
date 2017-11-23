@@ -137,21 +137,29 @@
                             <h4 class="panel-title">Vos statistiques de visites</h4>
                         </div>
                         <div class="panel-body">
-	                        <div class="col-md-12">
+	                        
 	                        	<form method="" action="" class="">
 									<div class="form-group">
-										<label class="control-label col-md-4">Nous sommes le</label>
-										<div class="col-md-8">
+										
+											<label>Jour</label>
 	                                        <div class="input-group date" id="datetimepicker1">
 	                                            <input type="text" class="form-control" />
 	                                            <span class="input-group-addon">
 	                                                <span class="glyphicon glyphicon-calendar"></span>
 	                                            </span>
 	                                        </div>
-										</div>
+	                                        
+	                                        <label>Session</label>
+	                                        <div class="input-group date" id="datetimepicker1">
+	                                            <input type="text" class="form-control" />
+	                                            <span class="input-group-addon">
+	                                                <span class="glyphicon glyphicon-calendar"></span>
+	                                            </span>
+	                                        </div>
+										
 									</div>
 								</form>
-	                        </div>
+	                        
 	                        
                             <table id="data-table" class="table table-striped table-bordered">
                                 <thead>

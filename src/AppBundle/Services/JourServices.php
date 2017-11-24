@@ -29,6 +29,10 @@ class JourServices {
         if ($jour)
             return;
 
+        $configurationMaximum = $this->em->getRepository('AppBundle:Configuration')->findOneByReference('maximum');
+        if (!$configurationMaximum)
+            return;
+
         $weezjumpResaServices = $this->container->get('weezjump.resa.services');
         $heures_ouverture_fermeture = $weezjumpResaServices->checkHeureOuvertureFermeture($date);
 
@@ -36,7 +40,7 @@ class JourServices {
         $jour->setDay($date);
         $jour->setDebut($heures_ouverture_fermeture['ouverture']);
         $jour->setFin($heures_ouverture_fermeture['fermeture']);
-        $jour->setMaximum(15);
+        $jour->setMaximum($configurationMaximum->getValeur());
 
         $this->em->persist($jour);
         $this->em->flush();

@@ -1,0 +1,12 @@
+{{ form_start(edit_form) }}
+<div class='hide hidden'>
+    {{ form_widget(edit_form.name) }}
+    {{ form_widget(edit_form.reference) }}
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Quantité maximale de participants</label>
+    <div class="col-md-9">
+        {{ form_widget(edit_form.valeur, {  'attr' : { 'class' : 'form-control edit_maximum_input' }, 'label' : false }) }}
+    </div>
+</div>
+{{ form_end(edit_form) }}

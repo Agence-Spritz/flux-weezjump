@@ -68,4 +68,11 @@ class DefaultController extends Controller {
         ));
     }
 
+    public function parametresAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        return $this->render('default/parametres.html.twig', array());
+    }
+
 }

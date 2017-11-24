@@ -10,6 +10,10 @@ app_creneau:
     resource: "@AppBundle/Resources/config/routing/creneau.yml"
     prefix:   /creneau
 
+app_configuration:
+    resource: "@AppBundle/Resources/config/routing/configuration.yml"
+    prefix:   /configuration
+
 app_categorie:
     resource: "@AppBundle/Resources/config/routing/categorie.yml"
     prefix:   /categorie
@@ -17,6 +21,11 @@ app_categorie:
 app_valeurcategorie:
     resource: "@AppBundle/Resources/config/routing/valeurcategorie.yml"
     prefix:   /valeurcategorie
+    
+parametres:
+    path:     /parametres
+    defaults: { _controller: "AppBundle:Default:parametres"}
+    methods:  GET    
     
 statistiques:
     path:     /statistiques/{date}

@@ -51,8 +51,6 @@ class CreneauServices {
         if ($creneau)
             return;
 
-        dump($debutCreneau);
-
         $finCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $debutCreneau->format('Y-m-d H:i:s'));
         $finCreneau->modify('+1hour');
 

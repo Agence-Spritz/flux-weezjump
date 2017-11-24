@@ -1,0 +1,29 @@
+configuration_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Configuration:index" }
+    methods:  GET
+
+configuration_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Configuration:show" }
+    methods:  GET
+
+configuration_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Configuration:new" }
+    methods:  [GET, POST]
+
+configuration_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Configuration:edit" }
+    methods:  [GET, POST]
+
+configuration_edit_maximum:
+    path:     /edit_maximum
+    defaults: { _controller: "AppBundle:Configuration:editMaximum" }
+    methods:  [GET, POST]
+
+configuration_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Configuration:delete" }
+    methods:  DELETE

@@ -7,8 +7,9 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use AppBundle\Entity\Jour;
 use AppBundle\Entity\Creneau;
+use \DateTime;
 
-class CreationCreneauServices {
+class CreneauServices {
 
     private $em;
     private $container;
@@ -32,7 +33,7 @@ class CreationCreneauServices {
 
         for ($i = 0; $i <= 48; $i++) {
             $debutCreneau->modify('+30minutes');
-            if ($debutCreneau->format('U') > $finJour->format('U'))
+            if ($debutCreneau->format('U') >= $finJour->format('U'))
                 break;
 
             $this->creerCreneau($debutCreneau, $jour);
@@ -50,9 +51,15 @@ class CreationCreneauServices {
         if ($creneau)
             return;
 
+        dump($debutCreneau);
+
+        $finCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $debutCreneau->format('Y-m-d H:i:s'));
+        $finCreneau->modify('+1hour');
+
         $creneau = new Creneau();
         $creneau->setJour($jour);
         $creneau->setDebut($debutCreneau);
+        $creneau->setFin($finCreneau);
         $creneau->setDuree(1);
         $creneau->setActive(1);
         $creneau->setCouleur($this->trouverCouleur($creneau));
@@ -65,7 +72,7 @@ class CreationCreneauServices {
 
         $array_couleur = $this->container->getParameter('couleurs');
 
-        $debutCreneau = $creneau->getDebut();
+        $debutCreneau = DateTime::createFromFormat('U', $creneau->getDebut()->format('U'));
         $debutCreneau->modify('-30minutes');
         $creneau_precedent = $this->em->getRepository('AppBundle:Creneau')->findOneByDebut($debutCreneau);
         if ($creneau_precedent and $couleur_a_supprimer = $creneau_precedent->getCouleur())
@@ -83,6 +90,25 @@ class CreationCreneauServices {
         shuffle($array_couleur);
         if (count($array_couleur))
             return $array_couleur[0];
+    }
+
+    public function countPlacesRestantes(Creneau $creneau) {
+        $maximum = $creneau->getJour()->getMaximum();
+        $count = $maximum - $creneau->getQuantite();
+        
+        if($creneau->fini())
+            return '-';
+
+        $jourServices = $this->container->get('jour.services');
+        $creneaux_actifs = $jourServices->getCreneauxActifs($creneau->getJour());
+
+        if (in_array($creneau, $creneaux_actifs))
+            foreach ($creneaux_actifs as $creneau_actif) {
+                if ($creneau_actif == $creneau)
+                    continue;
+                $count = $count - $creneau_actif->getQuantite();
+            }
+        return $count;
     }
 
 }

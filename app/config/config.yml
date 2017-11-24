@@ -36,6 +36,8 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         weezjump_resa_services: "@weezjump.resa.services"
+        jour_services: "@jour.services"
+        creneau_services: "@creneau.services"
 
 # Doctrine Configuration
 doctrine:

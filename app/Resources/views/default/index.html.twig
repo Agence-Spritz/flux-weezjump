@@ -85,20 +85,25 @@
                 <div class="widget widget-stats bg-purple">
                     <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
                     <div class="stats-title">VISITEURS ACTIFS</div>
-                    <div class="stats-number">58</div>
+                    <div class="stats-number">{{ jour_services.countVisiteursActifs(jour) }}</div>
                     <div class="stats-progress progress">
-                        <div class="progress-bar" style="width: 58%;"></div>
+                        {% set pourcentage_total = jour_services.countVisiteursActifs(jour) / jour.getTotalMaximumDuJour * 100 %}
+                        <div class="progress-bar" style="width: {{ pourcentage_total }}%;"></div>
                     </div>
-                    <div class="stats-desc">Total du jour : 288</div>
+                    <div class="stats-desc">Total du jour : {{ jour_services.totalDuJour(jour) }}</div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="widget widget-stats bg-purple">
                     <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
                     <div class="stats-title">PLACES RESTANTES</div>
-                    <div class="stats-number">25</div>
+                    <div class="stats-number">
+                        {% set places_restantes = (jour.getMaximum - jour_services.countVisiteursActifs(jour))  %}
+                        {{ places_restantes > 0 ? places_restantes : 0 }}
+                    </div>
                     <div class="stats-progress progress">
-                        <div class="progress-bar" style="width: 25%;"></div>
+                        {% set pourcentage_restant = (jour_services.countVisiteursActifs(jour) / jour.getMaximum * 100)  %}
+                        <div class="progress-bar" style="width: {{ pourcentage_restant }}%;"></div>
                     </div>
                     <div class="stats-desc"><a href="#" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
                 </div>
@@ -184,6 +189,7 @@
                     data: form.serialize(),
                     success: function (html) {
                         $('#myModal').empty().modal('hide');
+                        window.location.reload();
                     },
                     error: function (xhr) {
                     }

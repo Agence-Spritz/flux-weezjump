@@ -31,6 +31,13 @@ class Creneau {
     private $debut;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fin", type="datetime")
+     */
+    private $fin;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="duree", type="integer", nullable=true)
@@ -67,15 +74,32 @@ class Creneau {
     public function __construct() {
         $this->valeurCategories = new ArrayCollection();
     }
-    
+
     public function __toString() {
         return (string) $this->id;
     }
 
+    public function fini() {
+        if ($this->getFin()->format('U') < date('U'))
+            return true;
+        return false;
+    }
+
     public function getQuantite($symbole = null) {
+        $quantite = 0;
+        if ($symbole)
+            return $this->getQuantiteParSymbole($symbole);
+        else
+            foreach ($this->getValeurCategories() as $valeurCategorie) {
+                $quantite = $quantite + $valeurCategorie->getQuantite();
+            }
+        return $quantite;
+    }
+
+    public function getQuantiteParSymbole($symbole = null) {
         if (!$symbole)
             return null;
-        if ($this->getValeurCategorie())
+        if ($this->getValeurCategorie($symbole))
             return $this->getValeurCategorie()->getQuantite();
         return null;
     }
@@ -120,14 +144,6 @@ class Creneau {
      */
     public function getDebut() {
         return $this->debut;
-    }
-
-    public function getFin() {
-        if (!$this->debut or ! $this->duree)
-            return null;
-        $fin = DateTime::createFromFormat('U', $this->debut->format('U'));
-        $fin->modify('+' . $this->duree . 'hour');
-        return $fin;
     }
 
     /**
@@ -247,6 +263,28 @@ class Creneau {
      */
     public function getValeurCategories() {
         return $this->valeurCategories;
+    }
+
+    /**
+     * Set fin
+     *
+     * @param \DateTime $fin
+     *
+     * @return Creneau
+     */
+    public function setFin($fin) {
+        $this->fin = $fin;
+
+        return $this;
+    }
+
+    /**
+     * Get fin
+     *
+     * @return \DateTime
+     */
+    public function getFin() {
+        return $this->fin;
     }
 
 }

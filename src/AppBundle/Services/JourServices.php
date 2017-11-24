@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use AppBundle\Entity\Jour;
 
-class CreationJourServices {
+class JourServices {
 
     private $em;
     private $container;
@@ -42,11 +42,42 @@ class CreationJourServices {
         $this->em->flush();
         $this->em->refresh($jour);
 
-        $creationCreneauServices = $this->container->get('creation.creneau.services');
-        $creationCreneauServices->creerCreneauxDuJour($jour);
+        $creneauServices = $this->container->get('creneau.services');
+        $creneauServices->creerCreneauxDuJour($jour);
 
         $this->em->refresh($jour);
         return $jour;
+    }
+
+    public function getCreneauxActifs(Jour $jour, $passes = false) {
+        $creneaux_actifs = array();
+        foreach ($jour->getCreneaux() as $creneau) {
+            if (!$creneau->getActive())
+                continue;
+            if (!$creneau->getDebut() or ! $creneau->getFin())
+                continue;
+            if ($creneau->getDebut()->format('U') <= date('U') and $creneau->getFin()->format('U') >= date('U'))
+                $creneaux_actifs[] = $creneau;
+            if ($passes) {
+                if ($creneau->getDebut()->format('U') < date('U') and $creneau->getFin()->format('U') < date('U'))
+                    $creneaux_actifs[] = $creneau;
+            }
+        }
+        return $creneaux_actifs;
+    }
+
+    public function countVisiteursActifs(Jour $jour) {
+        $count = 0;
+        foreach ($this->getCreneauxActifs($jour) as $creneau)
+            $count = $count + $creneau->getQuantite();
+        return $count;
+    }
+
+    public function totalDuJour(Jour $jour) {
+        $count = 0;
+        foreach ($this->getCreneauxActifs($jour, true) as $creneau)
+            $count = $count + $creneau->getQuantite();
+        return $count;
     }
 
 }

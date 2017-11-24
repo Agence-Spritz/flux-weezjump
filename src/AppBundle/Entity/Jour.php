@@ -60,6 +60,9 @@ class Jour
         $this->creneaux = new ArrayCollection();
     }
 
+    public function getTotalMaximumDuJour(){
+        return round($this->maximum * count($this->getCreneaux()) / 2, 0);
+    }
 
     /**
      * Get id

@@ -9,10 +9,10 @@ services:
         class: AppBundle\Services\WeezjumpResaServices
         arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]
    
-    creation.jour.services:
-        class: AppBundle\Services\CreationJourServices
+    jour.services:
+        class: AppBundle\Services\JourServices
         arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]
    
-    creation.creneau.services:
-        class: AppBundle\Services\CreationCreneauServices
+    creneau.services:
+        class: AppBundle\Services\CreneauServices
         arguments: [ "@doctrine.orm.entity_manager", "@service_container", "@security.token_storage" ]

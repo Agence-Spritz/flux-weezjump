@@ -24,8 +24,8 @@ class DefaultController extends Controller {
 
         $jour = $em->getRepository('AppBundle:Jour')->findOneByDay($dateTime);
         if (!$jour) {
-            $CreationJourServices = $this->get('creation.jour.services');
-            $jour = $CreationJourServices->creerJour($dateTime);
+            $JourServices = $this->get('jour.services');
+            $jour = $JourServices->creerJour($dateTime);
         }
 
         if(!$jour)

@@ -8,6 +8,11 @@ creneau_show:
     defaults: { _controller: "AppBundle:Creneau:show" }
     methods:  GET
 
+creneau_statistiques:
+    path:     /statistiques/{id}
+    defaults: { _controller: "AppBundle:Creneau:statistiques" }
+    methods:  GET
+
 creneau_new:
     path:     /new
     defaults: { _controller: "AppBundle:Creneau:new" }

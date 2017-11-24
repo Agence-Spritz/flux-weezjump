@@ -39,4 +39,33 @@ class DefaultController extends Controller {
         ));
     }
 
+    public function statistiquesAction(Request $request, $date = null) {
+        if (!$date)
+            $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d 00:00:00'));
+        else
+            $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date . ' 00:00:00');
+
+        if (!$dateTime instanceof DateTime)
+            return $this->redirectToRoute('fos_user_security_login');
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $jour = $em->getRepository('AppBundle:Jour')->findOneByDay($dateTime);
+        if (!$jour) {
+            $JourServices = $this->get('jour.services');
+            $jour = $JourServices->creerJour($dateTime);
+        }
+
+        if (!$jour)
+            return $this->redirectToRoute('fos_user_security_login');
+
+        $creneaux = $em->getRepository('AppBundle:Creneau')->findAll();
+
+        return $this->render('default/statistiques.html.twig', array(
+                    'jour' => $jour,
+                    'creneaux' => $creneaux,
+        ));
+    }
+
 }

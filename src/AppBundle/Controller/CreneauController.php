@@ -61,6 +61,16 @@ class CreneauController extends Controller {
         ));
     }
 
+    public function statistiquesAction(Creneau $creneau) {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
+
+        return $this->render('creneau/statistiques.html.twig', array(
+                    'creneau' => $creneau,
+                    'categories' => $categories,
+        ));
+    }
+
     /**
      * Displays a form to edit an existing creneau entity.
      *

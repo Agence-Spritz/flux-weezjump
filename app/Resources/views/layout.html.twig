@@ -11,10 +11,10 @@
             <ul class="nav">
                 <li class="nav-header">Navigation</li>
 
-                <li class="active"><a href="index.php"><i class="fa fa-calendar"></i> <span>Tableau de bord</span></a></li>
+                <li class="active"><a href="{{ path('homepage') }}"><i class="fa fa-calendar"></i> <span>Tableau de bord</span></a></li>
                 <li class=""><a href="users.php"><i class="fa fa-key"></i> <span>Utilisateurs</span></a></li>
                 <li class=""><a href="settings.php"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li>
-                <li class=""><a href="statistiques.php"><i class="fa fa-area-chart"></i> <span>Statistiques</span></a></li>
+                <li class=""><a href="{{ path('statistiques') }}"><i class="fa fa-area-chart"></i> <span>Statistiques</span></a></li>
 
                 <!-- begin sidebar minify button -->
                 <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>

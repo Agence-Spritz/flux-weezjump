@@ -18,6 +18,11 @@ app_valeurcategorie:
     resource: "@AppBundle/Resources/config/routing/valeurcategorie.yml"
     prefix:   /valeurcategorie
     
+statistiques:
+    path:     /statistiques/{date}
+    defaults: { _controller: "AppBundle:Default:statistiques" , date: null}
+    methods:  GET    
+    
 homepage:
     path:     /{date}
     defaults: { _controller: "AppBundle:Default:index" , date: null}

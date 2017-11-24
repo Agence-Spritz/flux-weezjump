@@ -100,7 +100,7 @@ class Creneau {
         if (!$symbole)
             return null;
         if ($this->getValeurCategorie($symbole))
-            return $this->getValeurCategorie()->getQuantite();
+            return $this->getValeurCategorie($symbole)->getQuantite();
         return null;
     }
 

@@ -1,0 +1,133 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block content %}
+
+    <!-- begin #content -->
+    <div id="content" class="content">
+        <!-- begin breadcrumb -->
+        <ol class="breadcrumb pull-right">
+            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+            <li class="active">Statistiques</li>
+        </ol>
+        <!-- end breadcrumb -->
+        <!-- begin page-header -->
+        <h1 class="page-header">Statistiques</h1>
+        <!-- end page-header -->
+
+        <!-- begin row : Première ligne -->
+        <div class="row">
+
+            <!-- begin col-12 -->
+            <div class="col-md-12">
+                <!-- begin panel -->
+                <div class="panel panel-inverse">
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">Vos statistiques de visites</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+
+                            <!-- Choix du jour -->
+                            <label>Jour</label>
+                            <form method="GET" action="" class="form-horizontal form-bordered" id="form_jour_date">
+                                <div class="input-group date" id="datetimepicker_jour">
+                                    <input type="text" class="form-control" value="{{ jour.day|date('Y-m-d') }}" id="form_jour_date_input" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </form>
+
+                            <!-- Statistiques globales jour -->
+                            <table  id="data-table" class="m-t-15 table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Entrées totales</th>
+                                        <th>Nombre de sessions</th>
+                                        <th>Disponibilité totale jour</th>
+                                        <th>Entrées payantes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>{{ jour.getTotalDuJour() }}</td>
+                                        <td>{{ jour.countCreneaux }}</td>
+                                        <td>{{ jour.getTotalMaximumDuJour }}</td>
+                                        <td>???</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Choix d'une session sur le jour sélectionné -->
+                            <label class="control-label">Session</label>
+                            <div class="">
+                                <select class="form-control select_creneau" >
+                                    {% for creneau in creneaux %}
+                                        <option value="{{ creneau.id }}">{{ creneau.getDebut|date('H\\hi') }} - {{ creneau.getFin ? creneau.getFin|date('H\\hi') : '' }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- Statistiques liées à la session-->
+                        <div id="div_creneau_statistiques"></div>
+                    </div>
+                </div>
+                <!-- end panel -->
+            </div>
+            <!-- end col-12 -->
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end #content -->
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#datetimepicker_jour').datetimepicker({
+            defaultDate: "{{ jour.day|date('Y-m-d') }}",
+            format: 'YYYY-MM-DD'
+        {#                locale: 'fr'#}
+            });
+
+            function reloadStatistiquePage() {
+                var date = $('#form_jour_date_input').val();
+                var url = "{{ path('statistiques') }}/" + date;
+                window.location.replace(url);
+            }
+
+            var xhr;
+
+            $(document).on('submit', '#form_jour_date', function (e) {
+                e.preventDefault();
+                reloadStatistiquePage();
+            });
+            $("#datetimepicker_jour").on("dp.change", function (e) {
+                reloadStatistiquePage();
+            });
+
+            $(document).on('change', 'select.select_creneau', function (e) {
+                var id_creneau = $(this).val();
+
+                xhr = $.ajax({
+                    type: "GET",
+                    url: "/creneau/statistiques/" + id_creneau,
+                    success: function (html) {
+                        $('#div_creneau_statistiques').empty().html(html);
+                    },
+                    error: function (xhr) {
+
+                    }
+                });
+            });
+
+
+    </script>
+{% endblock %}

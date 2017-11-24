@@ -34,6 +34,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        weezjump_resa_services: "@weezjump.resa.services"
 
 # Doctrine Configuration
 doctrine:

@@ -190,5 +190,20 @@
                 });
             });
 
+
+            $(document).on('click', 'a.creneau_active, a.creneau_disable', function (e) {
+                e.preventDefault();
+
+                xhr = $.ajax({
+                    type: "GET",
+                    url: $(this).attr('href'),
+                    success: function (html) {
+                        window.location.reload();
+                    },
+                    error: function (xhr) {
+                    }
+                });
+            });
+
     </script>
 {% endblock %}

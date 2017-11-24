@@ -6,22 +6,21 @@ use AppBundle\Entity\Creneau;
 use AppBundle\Entity\Jour;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Creneau controller.
  *
  */
-class CreneauController extends Controller
-{
-    
-    public function indexAction(Request $request, Jour $jour)
-    {
+class CreneauController extends Controller {
+
+    public function indexAction(Request $request, Jour $jour) {
         $em = $this->getDoctrine()->getManager();
 
-        $creneaux = $em->getRepository('AppBundle:Creneau')->findBy(array ('jour' => $jour));
+        $creneaux = $em->getRepository('AppBundle:Creneau')->findBy(array('jour' => $jour));
 
         return $this->render('creneau/index.html.twig', array(
-            'creneaux' => $creneaux,
+                    'creneaux' => $creneaux,
         ));
     }
 
@@ -29,8 +28,7 @@ class CreneauController extends Controller
      * Creates a new creneau entity.
      *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         $creneau = new Creneau();
         $form = $this->createForm('AppBundle\Form\CreneauType', $creneau);
         $form->handleRequest($request);
@@ -44,8 +42,8 @@ class CreneauController extends Controller
         }
 
         return $this->render('creneau/new.html.twig', array(
-            'creneau' => $creneau,
-            'form' => $form->createView(),
+                    'creneau' => $creneau,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -53,14 +51,13 @@ class CreneauController extends Controller
      * Finds and displays a creneau entity.
      *
      */
-    public function showAction(Creneau $creneau)
-    {
+    public function showAction(Creneau $creneau) {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('AppBundle:Categorie')->findAll();
 
         return $this->render('creneau/show.html.twig', array(
-            'creneau' => $creneau,
-            'categories' => $categories,
+                    'creneau' => $creneau,
+                    'categories' => $categories,
         ));
     }
 
@@ -68,8 +65,7 @@ class CreneauController extends Controller
      * Displays a form to edit an existing creneau entity.
      *
      */
-    public function editAction(Request $request, Creneau $creneau)
-    {
+    public function editAction(Request $request, Creneau $creneau) {
         $deleteForm = $this->createDeleteForm($creneau);
         $editForm = $this->createForm('AppBundle\Form\CreneauType', $creneau);
         $editForm->handleRequest($request);
@@ -81,9 +77,9 @@ class CreneauController extends Controller
         }
 
         return $this->render('creneau/edit.html.twig', array(
-            'creneau' => $creneau,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'creneau' => $creneau,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -91,8 +87,7 @@ class CreneauController extends Controller
      * Deletes a creneau entity.
      *
      */
-    public function deleteAction(Request $request, Creneau $creneau)
-    {
+    public function deleteAction(Request $request, Creneau $creneau) {
         $form = $this->createDeleteForm($creneau);
         $form->handleRequest($request);
 
@@ -112,12 +107,30 @@ class CreneauController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Creneau $creneau)
-    {
+    private function createDeleteForm(Creneau $creneau) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('creneau_delete', array('id' => $creneau->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
+                        ->setAction($this->generateUrl('creneau_delete', array('id' => $creneau->getId())))
+                        ->setMethod('DELETE')
+                        ->getForm()
         ;
     }
+
+    public function activeAction(Creneau $creneau) {
+        $em = $this->getDoctrine()->getManager();
+        $creneau->setActive(true);
+        $em->persist($creneau);
+        $em->flush();
+
+        return new Response('', 200);
+    }
+
+    public function disableAction(Creneau $creneau) {
+        $em = $this->getDoctrine()->getManager();
+        $creneau->setActive(false);
+        $em->persist($creneau);
+        $em->flush();
+
+        return new Response('', 200);
+    }
+
 }

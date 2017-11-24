@@ -19,17 +19,6 @@ class JourController extends Controller {
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
-        $CreationJourServices = $this->get('creation.jour.services');
-        $CreationJourServices->creerJour();
-        $date = new \DateTime();
-        $date->modify('+1day');
-        $CreationJourServices->creerJour($date);
-        for ($i = 2; $i <= 20; $i++) {
-            $date->modify('+1day');
-            $CreationJourServices->creerJour($date);
-        }
-
-
         $jours = $em->getRepository('AppBundle:Jour')->findAll();
 
         return $this->render('jour/index.html.twig', array(

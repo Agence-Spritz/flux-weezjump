@@ -111,7 +111,7 @@ class WeezjumpResaServices {
         }
         mysql_free_result($result);
 
-        return $count;
+        return $count ? $count : 0;
     }
 
 }

@@ -52,28 +52,18 @@
                             <tbody>
                                 <tr>
                                     <td>Entrées totales</td>
-                                    <td><a href="#" class="btn btn-sm btn-default" >288</a></td>
+                                    <td><a href="#" class="btn btn-sm btn-default" >{{ jour.getTotalDuJour() }}</a></td>
                                 </tr>
                                 <tr>
                                     <td>Sessions</td>
-                                    <td><a href="#" class="btn btn-sm btn-default" >12 / 26</a></td>
+                                    <td><a href="#" class="btn btn-sm btn-default" >{{ jour.countCreneauxPasses }} / {{ jour.countCreneaux }}</a></td>
                                 </tr>
-                                <tr>
-                                    <td>Entrées A</td>
-                                    <td><a href="#" class="btn btn-sm btn-success" >160</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Entrées B</td>
-                                    <td><a href="#" class="btn btn-sm btn-success" >30</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Entrées C</td>
-                                    <td><a href="#" class="btn btn-sm btn-success" >40</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Entrées D</td>
-                                    <td><a href="#" class="btn btn-sm btn-success" >58</a></td>
-                                </tr>
+                                {% for categorie in categories %}
+                                    <tr>
+                                        <td>{{ categorie.getName|capitalize }}</td>
+                                        <td><a href="#" class="btn btn-sm btn-success" >{{ jour.getQuantite(categorie.getSymbole) }}</a></td>
+                                    </tr>
+                                {% endfor %}
                             </tbody>
                         </table>						
                     </div>

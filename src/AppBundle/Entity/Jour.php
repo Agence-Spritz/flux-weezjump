@@ -11,8 +11,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="jour")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\JourRepository")
  */
-class Jour
-{
+class Jour {
+
     /**
      * @var int
      *
@@ -49,7 +49,7 @@ class Jour
      * @ORM\Column(name="maximum", type="integer", nullable=true)
      */
     private $maximum;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Creneau", mappedBy="jour")
      * @ORM\OrderBy({"id" = "ASC"})
@@ -60,8 +60,53 @@ class Jour
         $this->creneaux = new ArrayCollection();
     }
 
-    public function getTotalMaximumDuJour(){
+    public function getTotalMaximumDuJour() {
         return round($this->maximum * count($this->getCreneaux()) / 2, 0);
+    }
+
+    public function getTotalDuJour() {
+        $count = 0;
+        foreach ($this->getCreneaux() as $creneau) {
+            if (!$creneau->getActive())
+                continue;
+            $count = $count + $creneau->getQuantite();
+        }
+        return $count;
+    }
+
+    public function countCreneaux() {
+        $count = 0;
+        foreach ($this->getCreneaux() as $creneau) {
+            if (!$creneau->getActive())
+                continue;
+            $count++;
+        }
+        return $count;
+    }
+
+    public function countCreneauxPasses() {
+        $count = 0;
+        foreach ($this->getCreneaux() as $creneau) {
+            if (!$creneau->getActive())
+                continue;
+            if ($creneau->fini())
+                $count++;
+        }
+        return $count;
+    }
+
+    public function getQuantite($symbole = null) {
+        $quantite = 0;
+        if (!$symbole)
+            return 0;
+
+        foreach ($this->getCreneaux() as $creneau) {
+            if (!$creneau->getActive())
+                continue;
+            if ($valeurCategorie = $creneau->getValeurCategorie($symbole))
+                $quantite = $quantite + $valeurCategorie->getQuantite();
+        }
+        return $quantite;
     }
 
     /**
@@ -69,8 +114,7 @@ class Jour
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -81,8 +125,7 @@ class Jour
      *
      * @return Jour
      */
-    public function setDay($day)
-    {
+    public function setDay($day) {
         $this->day = $day;
 
         return $this;
@@ -93,8 +136,7 @@ class Jour
      *
      * @return \DateTime
      */
-    public function getDay()
-    {
+    public function getDay() {
         return $this->day;
     }
 
@@ -105,8 +147,7 @@ class Jour
      *
      * @return Jour
      */
-    public function setDebut($debut)
-    {
+    public function setDebut($debut) {
         $this->debut = $debut;
 
         return $this;
@@ -117,8 +158,7 @@ class Jour
      *
      * @return \DateTime
      */
-    public function getDebut()
-    {
+    public function getDebut() {
         return $this->debut;
     }
 
@@ -129,8 +169,7 @@ class Jour
      *
      * @return Jour
      */
-    public function setFin($fin)
-    {
+    public function setFin($fin) {
         $this->fin = $fin;
 
         return $this;
@@ -141,8 +180,7 @@ class Jour
      *
      * @return \DateTime
      */
-    public function getFin()
-    {
+    public function getFin() {
         return $this->fin;
     }
 
@@ -153,8 +191,7 @@ class Jour
      *
      * @return Jour
      */
-    public function setMaximum($maximum)
-    {
+    public function setMaximum($maximum) {
         $this->maximum = $maximum;
 
         return $this;
@@ -165,8 +202,7 @@ class Jour
      *
      * @return int
      */
-    public function getMaximum()
-    {
+    public function getMaximum() {
         return $this->maximum;
     }
 
@@ -177,8 +213,7 @@ class Jour
      *
      * @return Jour
      */
-    public function addCreneaux(\AppBundle\Entity\Creneau $creneaux)
-    {
+    public function addCreneaux(\AppBundle\Entity\Creneau $creneaux) {
         $this->creneaux[] = $creneaux;
 
         return $this;
@@ -189,8 +224,7 @@ class Jour
      *
      * @param \AppBundle\Entity\Creneau $creneaux
      */
-    public function removeCreneaux(\AppBundle\Entity\Creneau $creneaux)
-    {
+    public function removeCreneaux(\AppBundle\Entity\Creneau $creneaux) {
         $this->creneaux->removeElement($creneaux);
     }
 
@@ -199,8 +233,8 @@ class Jour
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCreneaux()
-    {
+    public function getCreneaux() {
         return $this->creneaux;
     }
+
 }

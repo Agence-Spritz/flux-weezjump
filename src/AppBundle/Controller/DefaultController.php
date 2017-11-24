@@ -14,11 +14,11 @@ class DefaultController extends Controller {
             $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d 00:00:00'));
         else
             $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date . ' 00:00:00');
-        
-        if(!$dateTime instanceof DateTime)
-             return $this->redirectToRoute('fos_user_security_login');
-        
-        
+
+        if (!$dateTime instanceof DateTime)
+            return $this->redirectToRoute('fos_user_security_login');
+
+
         $em = $this->getDoctrine()->getManager();
 
 
@@ -28,11 +28,14 @@ class DefaultController extends Controller {
             $jour = $JourServices->creerJour($dateTime);
         }
 
-        if(!$jour)
-             return $this->redirectToRoute('fos_user_security_login');
+        if (!$jour)
+            return $this->redirectToRoute('fos_user_security_login');
+
+        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
 
         return $this->render('default/index.html.twig', array(
                     'jour' => $jour,
+                    'categories' => $categories,
         ));
     }
 

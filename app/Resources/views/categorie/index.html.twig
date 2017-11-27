@@ -11,6 +11,7 @@
                     <th>Description</th>
                     <th>Durée (en H)</th>
                     <th>Nbr de personnes</th>
+                    <th>Payante</th>
                     <th>Masquer</th>
                     <th><i class="fa fa-cog"></i></th>
                 </tr>
@@ -23,6 +24,11 @@
                         <td>{{ categorie.description }}</td>
                         <td>{{ categorie.duree }}</td>
                         <td>{{ categorie.quantite }}</td>
+                        <td>
+                            {% if categorie.payante %}
+                                <i class="fa fa-eur"></i>
+                            {% endif %}
+                        </td>
                         <td>
                             {% if categorie.hidden %}
                                 <i class="fa fa-eye-slash"></i>

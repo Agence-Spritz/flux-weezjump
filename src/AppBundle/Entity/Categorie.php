@@ -63,6 +63,13 @@ class Categorie
      * @ORM\Column(name="hidden", type="boolean", nullable=true)
      */
     private $hidden;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payante", type="boolean", nullable=true)
+     */
+    private $payante;
     
     
     /**
@@ -265,5 +272,29 @@ class Categorie
     public function getHidden()
     {
         return $this->hidden;
+    }
+
+    /**
+     * Set payante
+     *
+     * @param boolean $payante
+     *
+     * @return Categorie
+     */
+    public function setPayante($payante)
+    {
+        $this->payante = $payante;
+
+        return $this;
+    }
+
+    /**
+     * Get payante
+     *
+     * @return boolean
+     */
+    public function getPayante()
+    {
+        return $this->payante;
     }
 }

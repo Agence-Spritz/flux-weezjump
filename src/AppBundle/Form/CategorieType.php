@@ -19,6 +19,7 @@ class CategorieType extends AbstractType
                 ->add('duree')
                 ->add('description')
                 ->add('hidden')
+                ->add('payante')
                 ;
     }
     

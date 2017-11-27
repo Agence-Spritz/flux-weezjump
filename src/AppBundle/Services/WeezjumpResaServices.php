@@ -65,7 +65,7 @@ class WeezjumpResaServices {
 
         $nom_jour = $this->noms_jours[date('N', $date->format('U'))];
 
-        $sql = "SELECT * FROM ouvertureexp WHERE dateDebut <= '" . $date->format('Y-m-d') . "' AND dateFin >= '" . $date->format('Y-m-d') . "' ";
+        $sql = "SELECT * FROM ouvertureExp WHERE dateDebut <= '" . $date->format('Y-m-d') . "' AND dateFin >= '" . $date->format('Y-m-d') . "' ";
         $result = mysql_query($sql, $this->connection);
         if (mysql_num_rows($result) != 0)
             $ouverture_normale = false;

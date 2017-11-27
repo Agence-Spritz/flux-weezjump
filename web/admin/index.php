@@ -280,10 +280,13 @@
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -319,10 +322,13 @@
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -356,10 +362,13 @@
 			                        <div class="panel-body <?php echo $couleur; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -393,10 +402,13 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -430,10 +442,13 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -467,10 +482,13 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -504,10 +522,13 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -541,10 +562,13 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> text-white">
 				                            <form class="form-horizontal">
 				                                <div class="form-group">
-					                                <div class="col-md-6">
-					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 60</div>
+					                                <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">réservé : 40</div>
 				                                    </div>
-				                                    <div class="col-md-6">
+				                                    <div class="col-md-4">
+					                                    <div class="btn btn-sm btn-warning places-restantes">inscrits : 20</div>
+				                                    </div>
+				                                    <div class="col-md-4">
 					                                    <div class="btn btn-sm btn-warning places-restantes">reste : 20</div>
 				                                    </div>
 				                                    <div class="clearfix"></div>
@@ -578,7 +602,11 @@
 			                        <div class="panel-body bg-<?php echo $color_body_panel; ?> grisee text-white">
 				                             <form class="form-horizontal">
 				                                <div class="form-group">
-				                                    <div class="col-md-9">
+					                                <div class="col-md-12">
+					                                    <div class="btn btn-sm  places-restantes">non disponible</div>
+				                                    </div>
+				                                    <div class="clearfix"></div>
+				                                    <div class="col-md-12 m-t-15">
 				                                        <select class="form-control" disabled="disable">
 				                                            <option>Standard</option>
 				                                            <option>Groupe</option>
@@ -586,10 +614,6 @@
 				                                            <option>Baby Weez</option>
 				                                            <option>Laser Weez</option>
 				                                        </select>
-				                                        
-				                                    </div>
-				                                    <div class="col-md-3">
-					                                    <div class="btn btn-sm btn-warning places-restantes">60 / 80</div>
 				                                    </div>
 				                                </div>
 				                             </form>

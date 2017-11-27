@@ -67,20 +67,16 @@ class JourController extends Controller {
      *
      */
     public function editAction(Request $request, Jour $jour) {
-        $deleteForm = $this->createDeleteForm($jour);
-        $editForm = $this->createForm('AppBundle\Form\JourType', $jour);
+        $editForm = $this->createForm('AppBundle\Form\JourType', $jour, array('action' => $this->generateUrl('jour_edit', array('id' => $jour->getId()))));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('jour_edit', array('id' => $jour->getId()));
         }
 
         return $this->render('jour/edit.html.twig', array(
                     'jour' => $jour,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
         ));
     }
 

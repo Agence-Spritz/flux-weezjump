@@ -95,7 +95,9 @@
                         {% set pourcentage_restant = (jour_services.countVisiteursActifs(jour) / jour.getMaximum * 100)  %}
                         <div class="progress-bar" style="width: {{ pourcentage_restant }}%;"></div>
                     </div>
-                    <div class="stats-desc"><a href="#" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a></div>
+                    <div class="stats-desc">
+                        <a href="{{ path('jour_edit', { 'id' : jour.id } ) }}" class="jour_quantite" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a>
+                    </div>
                 </div>
             </div>
 
@@ -195,6 +197,20 @@
                     url: $(this).attr('href'),
                     success: function (html) {
                         window.location.reload();
+                    },
+                    error: function (xhr) {
+                    }
+                });
+            });
+
+            $(document).on('click', 'a.jour_quantite', function (e) {
+                e.preventDefault();
+
+                xhr = $.ajax({
+                    type: "GET",
+                    url: $(this).attr('href'),
+                    success: function (html) {
+                        $('#myModal').empty().html(html).modal('show');
                     },
                     error: function (xhr) {
                     }

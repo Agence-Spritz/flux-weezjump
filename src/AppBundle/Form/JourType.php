@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class JourType extends AbstractType
 {
@@ -13,7 +14,12 @@ class JourType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('day')->add('debut')->add('fin')->add('maximum');
+        $builder->add('maximum', TextType::class, array(
+                    'label' => false,
+                    'attr' => array(
+                        'class' => 'form-control text-center'
+                    )
+                ));
     }
     
     /**

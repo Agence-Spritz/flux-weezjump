@@ -1,21 +1,30 @@
-{% extends 'base.html.twig' %}
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Quantité maximale de participants</h4>
+        </div>
+        <div class="modal-body">
+            <p>Veuillez choisir la quantité maximale de participants simultannés pour le {{ jour.getDay()|date('Y-m-d') }}.</p>
 
-{% block body %}
-    <h1>Jour edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('jour_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
+        </div>
+        <div class="modal-footer">
+            {{ form_start(edit_form) }}
+            <div class="col-md-12">
+                <div class="input-group number-spinner">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                    </span>
+                    {{ form_widget(edit_form.maximum) }}
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                    </span>
+                </div>
+            </div>
+            <div style="margin-top: 15px;" class="col-md-12">
+                <button type="submit" class="btn btn-block btn-primary">Valider</button>
+            </div>
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+</div>

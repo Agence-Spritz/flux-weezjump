@@ -35,6 +35,41 @@ class Categorie
      * @ORM\Column(name="symbole", type="string", length=255)
      */
     private $symbole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duree", type="integer", nullable=true)
+     */
+    private $duree;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer", nullable=true)
+     */
+    private $quantite;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hidden", type="boolean", nullable=true)
+     */
+    private $hidden;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payante", type="boolean", nullable=true)
+     */
+    private $payante;
     
     
     /**
@@ -141,5 +176,125 @@ class Categorie
     public function getValeurCategories()
     {
         return $this->valeurCategories;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Categorie
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set duree
+     *
+     * @param integer $duree
+     *
+     * @return Categorie
+     */
+    public function setDuree($duree)
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get duree
+     *
+     * @return integer
+     */
+    public function getDuree()
+    {
+        return $this->duree;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return Categorie
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param boolean $hidden
+     *
+     * @return Categorie
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return boolean
+     */
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set payante
+     *
+     * @param boolean $payante
+     *
+     * @return Categorie
+     */
+    public function setPayante($payante)
+    {
+        $this->payante = $payante;
+
+        return $this;
+    }
+
+    /**
+     * Get payante
+     *
+     * @return boolean
+     */
+    public function getPayante()
+    {
+        return $this->payante;
     }
 }

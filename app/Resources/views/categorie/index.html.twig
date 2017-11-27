@@ -1,41 +1,43 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Categories list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Symbole</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td><a href="{{ path('categorie_show', { 'id': categorie.id }) }}">{{ categorie.id }}</a></td>
-                <td>{{ categorie.name }}</td>
-                <td>{{ categorie.symbole }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categorie_show', { 'id': categorie.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categorie_new') }}">Create a new categorie</a>
-        </li>
-    </ul>
-{% endblock %}
+<div class="panel panel-inverse" data-sortable-id="table-basic-1">
+    <div class="panel-heading">
+        <h4 class="panel-title">Gestion des tarifs</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Durée (en H)</th>
+                    <th>Nbr de personnes</th>
+                    <th>Payante</th>
+                    <th>Masquer</th>
+                    <th><i class="fa fa-cog"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                    <tr>
+                        <td>{{ categorie.symbole }}</td>
+                        <td>{{ categorie.name|capitalize }}</td>
+                        <td>{{ categorie.description }}</td>
+                        <td>{{ categorie.duree }}</td>
+                        <td>{{ categorie.quantite }}</td>
+                        <td>
+                            {% if categorie.payante %}
+                                <i class="fa fa-eur"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if categorie.hidden %}
+                                <i class="fa fa-eye-slash"></i>
+                            {% endif %}
+                        </td>
+                        <td><a href="{{ path('categorie_edit', { 'id': categorie.id }) }}" title="Modifier ce tarif"><i class="fa fa-pencil"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>   

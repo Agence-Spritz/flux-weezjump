@@ -42,7 +42,7 @@ class CategorieController extends Controller
             $em->persist($categorie);
             $em->flush();
 
-            return $this->redirectToRoute('categorie_show', array('id' => $categorie->getId()));
+            return $this->redirectToRoute('parametres');
         }
 
         return $this->render('categorie/new.html.twig', array(
@@ -71,20 +71,18 @@ class CategorieController extends Controller
      */
     public function editAction(Request $request, Categorie $categorie)
     {
-        $deleteForm = $this->createDeleteForm($categorie);
         $editForm = $this->createForm('AppBundle\Form\CategorieType', $categorie);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categorie_edit', array('id' => $categorie->getId()));
+            return $this->redirectToRoute('parametres');
         }
 
         return $this->render('categorie/edit.html.twig', array(
             'categorie' => $categorie,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

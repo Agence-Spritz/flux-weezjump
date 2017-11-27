@@ -1,16 +1,87 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block body %}
-    <h1>Categorie creation</h1>
+{% block content %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <!-- begin #content -->
+    <div id="content" class="content">
+        <!-- begin breadcrumb -->
+        <ol class="breadcrumb pull-right">
+            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+            <li class="active">Paramètres</li>
+            <li class="active">Enregistrement</li>
+        </ol>
+        <!-- end breadcrumb -->
+        <!-- begin page-header -->
+        <h1 class="page-header">Nouveau tarif</h1>
+        <!-- end page-header -->
 
-    <ul>
-        <li>
-            <a href="{{ path('categorie_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <!-- begin row : Première ligne -->
+        <div class="row">
+            <!-- begin col-6 -->
+            <div class="col-md-12">
+                <!-- begin panel -->
+                <div class="panel panel-inverse" data-sortable-id="form-validation-1">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Informations nouveau tarif</h4>
+                    </div>
+                    <div class="panel-body panel-form">
+                        {{ form_start(form, { 'attr': { 'class': 'form-horizontal form-bordered', 'data-parsley-validate' : 'true'  } } ) }}
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="symbole">Symbole * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(form.symbole, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Symbole souhaité"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="nom">Nom * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(form.name, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Nom"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="description">Description * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(form.description, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Description succinte"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="duree">Durée * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(form.duree, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Durée"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="nombre">Nombre de participants * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(form.quantite, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Nombre de participantsraw"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="nombre">Payante * :</label>
+                            <div class="col-md-1 col-sm-1">
+                                {{ form_widget(form.payante, { 'attr': { 'class': 'form-control'  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="nombre">Masqué * :</label>
+                            <div class="col-md-1 col-sm-1">
+                                {{ form_widget(form.hidden, { 'attr': { 'class': 'form-control'  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4"></label>
+                            <div class="col-md-6 col-sm-6">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+                <!-- end panel -->
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end #content -->
 {% endblock %}

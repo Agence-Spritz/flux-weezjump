@@ -125,4 +125,3 @@ class Configuration
         return $this->valeur;
     }
 }
-

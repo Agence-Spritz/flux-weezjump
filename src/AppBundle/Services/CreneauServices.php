@@ -54,6 +54,9 @@ class CreneauServices {
         $finCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $debutCreneau->format('Y-m-d H:i:s'));
         $finCreneau->modify('+1hour');
 
+        if ($finCreneau->format('U') > $jour->getFin()->format('U'))
+            return;
+
         $creneau = new Creneau();
         $creneau->setJour($jour);
         $creneau->setDebut($debutCreneau);
@@ -93,8 +96,8 @@ class CreneauServices {
     public function countPlacesRestantes(Creneau $creneau) {
         $maximum = $creneau->getJour()->getMaximum();
         $count = $maximum - $creneau->getQuantite();
-        
-        if($creneau->fini())
+
+        if ($creneau->fini())
             return '-';
 
         $jourServices = $this->container->get('jour.services');

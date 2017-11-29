@@ -143,7 +143,7 @@
 
             function reloadHomepage() {
                 var date = $('#form_jour_date_input').val();
-                var url = "{{ path('homepage') }}/" + date;
+                var url = "{{ path('homepage') }}" + date;
                 window.location.replace(url);
             }
 

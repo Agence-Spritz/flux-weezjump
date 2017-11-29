@@ -57,7 +57,7 @@
             <div class="container-fluid">
                 <!-- begin mobile sidebar expand / collapse button -->
                 <div class="navbar-header">
-                    <a href="login.php" class="navbar-brand"><img class="logo-top" src="img/logo-weezjump.png" title="" alt="" /> WeezJump</a>
+                    <a href="{{ path('homepage') }}" class="navbar-brand"><img class="logo-top" src="img/logo-weezjump.png" title="" alt="" /> WeezJump</a>
                     <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -72,12 +72,12 @@
 
                     <li class="dropdown navbar-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('admin/assets/img/user-13.jpg') }}" alt="" /> 
-                            <span class="hidden-xs">Sébastien Fuger</span> <b class="caret"></b>
+{#                            <img src="{{ asset('admin/assets/img/user-13.jpg') }}" alt="" /> #}
+                            <span class="hidden-xs">{{ app.user|capitalize }}</span> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu animated fadeInLeft">
                             <li class="arrow"></li>
-                            <li><a href="javascript:;">Déconnexion</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                         </ul>
                     </li>
                 </ul>

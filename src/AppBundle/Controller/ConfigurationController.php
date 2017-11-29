@@ -92,7 +92,13 @@ class ConfigurationController extends Controller {
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $prochainsJours = $em->getRepository('AppBundle:Jour')->prochainsJours();
+            foreach ($prochainsJours as $jour) {
+                $jour->setMaximum($configuration->getValeur());
+                $em->persist($jour);
+            }
+
+            $em->flush();
 
             return $this->redirectToRoute('configuration_edit_maximum', array('id' => $configuration->getId()));
         }

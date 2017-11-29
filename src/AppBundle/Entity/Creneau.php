@@ -85,22 +85,22 @@ class Creneau {
         return false;
     }
 
-    public function getQuantite($symbole = null) {
+    public function getQuantite($symbole = null, $payante = null) {
         $quantite = 0;
         if ($symbole)
-            return $this->getQuantiteParSymbole($symbole);
+            return $this->getQuantiteParSymbole($symbole, $payante);
         else
             foreach ($this->getValeurCategories() as $valeurCategorie) {
-                $quantite = $quantite + $valeurCategorie->getQuantite();
+                $quantite = $quantite + $valeurCategorie->getQuantite($payante);
             }
         return $quantite;
     }
 
-    public function getQuantiteParSymbole($symbole = null) {
+    public function getQuantiteParSymbole($symbole = null, $payante = null) {
         if (!$symbole)
             return null;
         if ($this->getValeurCategorie($symbole))
-            return $this->getValeurCategorie($symbole)->getQuantite();
+            return $this->getValeurCategorie($symbole)->getQuantite($payante);
         return null;
     }
 

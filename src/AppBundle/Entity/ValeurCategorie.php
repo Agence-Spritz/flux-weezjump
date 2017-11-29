@@ -73,8 +73,10 @@ class ValeurCategorie
      *
      * @return int
      */
-    public function getQuantite()
+    public function getQuantite($payante = null)
     {
+        if($payante and !$this->getCategorie()->getPayante())
+            return 0;
         return $this->quantite;
     }
 

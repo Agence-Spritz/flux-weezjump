@@ -64,12 +64,12 @@ class Jour {
         return round($this->maximum * count($this->getCreneaux()) / 2, 0);
     }
 
-    public function getTotalDuJour() {
+    public function getTotalDuJour($payante = null) {
         $count = 0;
         foreach ($this->getCreneaux() as $creneau) {
             if (!$creneau->getActive())
                 continue;
-            $count = $count + $creneau->getQuantite();
+            $count = $count + $creneau->getQuantite(null, $payante);
         }
         return $count;
     }

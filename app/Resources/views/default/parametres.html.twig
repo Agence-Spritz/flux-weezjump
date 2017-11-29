@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block sidebar %}
+    {% set sidebar_active = 'parametres' %}
+    {{ parent() }}
+{% endblock  %}
 
 {% block content %}
 

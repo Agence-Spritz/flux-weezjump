@@ -1,5 +1,10 @@
 {% extends 'layout.html.twig' %}
 
+{% block sidebar %}
+    {% set sidebar_active = 'user' %}
+    {{ parent() }}
+{% endblock  %}
+
 {% block content %}
 
     <!-- begin #content -->

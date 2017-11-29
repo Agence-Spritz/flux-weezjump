@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block sidebar %}
+    {% set sidebar_active = 'statistiques' %}
+    {{ parent() }}
+{% endblock  %}
 
 {% block content %}
 
@@ -56,7 +60,7 @@
                                         <td>{{ jour.getTotalDuJour() }}</td>
                                         <td>{{ jour.countCreneaux }}</td>
                                         <td>{{ jour.getTotalMaximumDuJour }}</td>
-                                        <td>???</td>
+                                        <td>{{ jour.getTotalDuJour(true) }}</td>
                                     </tr>
                                 </tbody>
                             </table>

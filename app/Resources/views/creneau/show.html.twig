@@ -7,15 +7,18 @@
                 <a href="{{ path('creneau_active', { 'id' : creneau.id } ) }}" class="btn btn-xs btn-icon btn-circle btn-success creneau_active"><i class="fa fa-repeat"></i></a>
                 <a href="{{ path('creneau_disable', { 'id' : creneau.id } ) }}" class="btn btn-xs btn-icon btn-circle btn-danger creneau_disable"><i class="fa fa-times"></i></a>
             </div>
-            <h4 class="panel-title"><i class="fa fa-calendar"></i> {{ creneau.getDebut|date('H\\hi') }} - {{ creneau.getFin ? creneau.getFin|date('H\\hi') : '' }}</h4>
+            <h4 class="panel-title"><i class="fa fa-calendar"></i> {{ creneau.getDebut ? creneau.getDebut|date('H\\hi') : '' }} - {{ creneau.getFin ? creneau.getFin|date('H\\hi') : '' }}</h4>
         </div>
         <div class="panel-body {{ couleur }} {{ creneau.active ? '' : 'grisee' }} text-white">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="btn btn-sm btn-warning places-restantes">réservé : {{ weezjump_resa_services.checkQuantiteReserveeCreneau(creneau) }}</div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="btn btn-sm btn-warning places-restantes">inscrits : {{ creneau.getQuantite() }}</div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="btn btn-sm btn-warning places-restantes">reste : {{ creneau_services.countPlacesRestantes(creneau) }}</div>
                     </div>
                     <div class="clearfix"></div>

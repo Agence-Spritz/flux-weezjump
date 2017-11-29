@@ -1,21 +1,86 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block body %}
-    <h1>User edit</h1>
+{% block content %}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <!-- begin #content -->
+    <div id="content" class="content">
+        <!-- begin breadcrumb -->
+        <ol class="breadcrumb pull-right">
+            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+            <li class="active">Utilisateurs</li>
+            <li class="active">Enregistrement</li>
+        </ol>
+        <!-- end breadcrumb -->
+        <!-- begin page-header -->
+        <h1 class="page-header">Modifier utilisateur</h1>
+        <!-- end page-header -->
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <!-- begin row : Première ligne -->
+        <div class="row">
+            <!-- begin col-6 -->
+            <div class="col-md-12">
+                <!-- begin panel -->
+                <div class="panel panel-inverse" data-sortable-id="form-validation-1">
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">Informations utilisateur</h4>
+                    </div>
+                    <div class="panel-body panel-form">
+                        {{ form_start(edit_form, { 'attr': { 'class': 'form-horizontal form-bordered', 'data-parsley-validate' : 'true'  } } ) }}
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="login">Login * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(edit_form.username, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Login souhaité"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="nom">Nom * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(edit_form.nom, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Nom"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="prenom">Prénom * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(edit_form.prenom, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true', 'placeholder':"Prénom"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="email">Email * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(edit_form.email, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true',  'data-parsley-type' : 'email', 'placeholder':"Email"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4" for="mdp">Mot de passe * :</label>
+                            <div class="col-md-6 col-sm-6">
+                                {{ form_widget(edit_form.plainPassword, { 'attr': { 'class': 'form-control', 'data-parsley-required' : 'true',  'data-parsley-type' : 'mdp', 'placeholder':"Mot de passe"  } } ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4"></label>
+                            <div class="col-md-6 col-sm-6">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                        {{ form_end(edit_form) }}
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4"></label>
+                            {{ form_start(delete_form) }}
+                            <div class="col-md-6 col-sm-6">
+                                <button type="submit" class="btn btn-danger m-b-20">Supprimer</button>
+                            </div>
+                            {{ form_end(delete_form) }}
+                        </div>
+                    </div>
+                </div>
+                <!-- end panel -->
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end #content -->
+
 {% endblock %}

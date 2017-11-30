@@ -55,6 +55,8 @@ class CreneauController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('AppBundle:Categorie')->findAll();
 
+        $em->refresh($creneau);
+        
         return $this->render('creneau/show.html.twig', array(
                     'creneau' => $creneau,
                     'categories' => $categories,

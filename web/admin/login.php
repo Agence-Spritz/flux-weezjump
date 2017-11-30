@@ -46,6 +46,11 @@
             </div>
             <!-- end brand -->
             <div class="login-content">
+	            <div class="alert alert-warning fade in m-b-15">
+					<strong>Warning!</strong>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</div>
+							
                 <form action="index.html" method="POST" class="margin-bottom-0">
                     <div class="form-group m-b-20">
                         <input type="text" class="form-control input-lg" placeholder="Adresse email" />

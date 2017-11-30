@@ -60,7 +60,7 @@ class DefaultController extends Controller {
         if (!$jour)
             return $this->redirectToRoute('fos_user_security_login');
 
-        $creneaux = $em->getRepository('AppBundle:Creneau')->findAll();
+        $creneaux = $em->getRepository('AppBundle:Creneau')->findByJour($jour);
 
         return $this->render('default/statistiques.html.twig', array(
                     'jour' => $jour,

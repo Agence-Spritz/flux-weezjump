@@ -13,7 +13,7 @@
                 <td>{{ categorie.getName()|capitalize }}</td>
                 {% set quantite = creneau.getQuantite() %}
                 {% set quantite_categorie = creneau.getQuantite(categorie.getSymbole()) %}
-                <td> {{ categorie.getSymbole() }} {{ quantite_categorie }}</td>
+                <td>{{ quantite_categorie ? quantite_categorie : '0'  }}</td>
                 {% if not quantite %}
                     {% set pourcentage = 0 %}
                 {% else %}

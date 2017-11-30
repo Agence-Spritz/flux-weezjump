@@ -125,6 +125,7 @@
                     url: "/creneau/statistiques/" + id_creneau,
                     success: function (html) {
                         $('#div_creneau_statistiques').empty().html(html);
+                        console.log($('#div_creneau_statistiques'));
                     },
                     error: function (xhr) {
 

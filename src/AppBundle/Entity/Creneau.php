@@ -142,7 +142,7 @@ class Creneau {
         if ($creneauPrecedent and $creneauPrecedent->getActive()) {
             return round(($this->getJour()->getMaximum() - $creneauPrecedent->getQuantite() - $this->getQuantite()), 0);
         }
-        return $this->getJour()->getMaximum();
+        return round(($this->getJour()->getMaximum() - $this->getQuantite()), 0);
     }
 
     public function countPlacesRestantesDeuxiemeMoitie() {
@@ -150,7 +150,7 @@ class Creneau {
         if ($creneauSuivant and $creneauSuivant->getActive()) {
             return round(($this->getJour()->getMaximum() - $creneauSuivant->getQuantite() - $this->getQuantite()), 0);
         }
-        return $this->getJour()->getMaximum();
+        return round(($this->getJour()->getMaximum() - $this->getQuantite()), 0);
     }
 
     /**

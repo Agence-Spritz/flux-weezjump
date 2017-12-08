@@ -242,19 +242,19 @@ var FormPlugins = function () {
         //main function
         init: function () {
 			handleDatepicker();
-			handleIonRangeSlider();
-			handleFormMaskedInput();
-			handleFormColorPicker();
-			handleFormTimePicker();
-			handleFormPasswordIndicator();
-			handleJqueryAutocomplete();
+			//handleIonRangeSlider();
+			//handleFormMaskedInput();
+			//handleFormColorPicker();
+			//handleFormTimePicker();
+			//handleFormPasswordIndicator();
+			//handleJqueryAutocomplete();
 			handleBootstrapCombobox();
 			handleSelectpicker();
-			handleTagsInput();
-			handleJqueryTagIt();
-			handleDateRangePicker();
-			handleSelect2();
-			handleDateTimePicker();
+			//handleTagsInput();
+			//handleJqueryTagIt();
+			//handleDateRangePicker();
+			//handleSelect2();
+			//handleDateTimePicker();
         }
     };
 }();

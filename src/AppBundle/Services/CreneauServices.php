@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use AppBundle\Entity\Jour;
 use AppBundle\Entity\Creneau;
 use \DateTime;
+use \DateTimeZone;
 
 class CreneauServices {
 
@@ -63,7 +64,8 @@ class CreneauServices {
         $creneau->setFin($finCreneau);
         $creneau->setDuree(1);
         $creneau->setActive(1);
-        $creneau->setCouleur($this->trouverCouleur($creneau));
+        $couleur = $this->trouverCouleur($creneau);
+        $creneau->setCouleur($couleur);
 
         $this->em->persist($creneau);
         $this->em->flush();
@@ -73,20 +75,23 @@ class CreneauServices {
 
         $array_couleur = $this->container->getParameter('couleurs');
 
-        $debutCreneau = DateTime::createFromFormat('U', $creneau->getDebut()->format('U'));
+        $timezone = new DateTimeZone('Europe/London');
+        $debutCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $creneau->getDebut()->format('Y-m-d H:i:s'));
         $debutCreneau->modify('-30minutes');
         $creneau_precedent = $this->em->getRepository('AppBundle:Creneau')->findOneByDebut($debutCreneau);
-        if ($creneau_precedent and $couleur_a_supprimer = $creneau_precedent->getCouleur())
-            $array_couleur = array_filter($array_couleur, function ($value) use ($couleur_a_supprimer) {
-                return $value != $couleur_a_supprimer;
-            }, ARRAY_FILTER_USE_BOTH);
 
-        $debutCreneau->modify('+60minutes');
-        $creneau_suivant = $this->em->getRepository('AppBundle:Creneau')->findOneByDebut($debutCreneau);
-        if ($creneau_suivant and $couleur_a_supprimer = $creneau_suivant->getCouleur())
-            $array_couleur = array_filter($array_couleur, function ($value) use ($couleur_a_supprimer) {
-                return $value != $couleur_a_supprimer;
-            }, ARRAY_FILTER_USE_BOTH);
+
+        if ($creneau_precedent and $couleur_creneau_precedent = $creneau_precedent->getCouleur()) {
+            $array = array_keys($array_couleur, $couleur_creneau_precedent);
+            foreach ($array as $key => $value) {
+                $key_couleur = $value;
+                break;
+            }
+            if (isset($key_couleur) and $key_couleur >= 0 and $key_couleur < 7 and isset($array_couleur[$key_couleur + 1])) {
+                return $array_couleur[$key_couleur + 1];
+            } else
+                return $array_couleur[0];
+        }
 
         shuffle($array_couleur);
         if (count($array_couleur))

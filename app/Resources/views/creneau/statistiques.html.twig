@@ -19,7 +19,7 @@
                 {% else %}
                     {% set pourcentage = quantite_categorie / quantite * 100 %}
                 {% endif %}
-                <td>{{ pourcentage|format('%d') }}%</td>
+                <td>{{ pourcentage|format('%d')|round(2, 'common') }}%</td>
             </tr>
         {% endfor %}
 

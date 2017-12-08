@@ -61,10 +61,12 @@ class DefaultController extends Controller {
             return $this->redirectToRoute('fos_user_security_login');
 
         $creneaux = $em->getRepository('AppBundle:Creneau')->findByJour($jour);
+        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
 
         return $this->render('default/statistiques.html.twig', array(
                     'jour' => $jour,
                     'creneaux' => $creneaux,
+                    'categories' => $categories,
         ));
     }
 

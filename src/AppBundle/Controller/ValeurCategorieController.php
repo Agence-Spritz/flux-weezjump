@@ -56,6 +56,7 @@ class ValeurCategorieController extends Controller {
 
         return $this->render('valeurcategorie/edit.html.twig', array(
                     'valeurCategorie' => $valeurCategorie,
+                    'categorie' => $categorie,
                     'form' => $form->createView(),
         ));
     }

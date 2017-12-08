@@ -32,65 +32,65 @@ img.logo-top {
 
 /* Couleur Orange */
 .orange {
-	background-color: rgba(245,156,26,0.5);
+	background-color: rgba(249,122,49,0.8);
 }
 
 .orange >.panel-heading {
-	background-color: rgba(245,156,26,1);
+	background-color: rgba(249,122,49,1);
 }
 
 /* Couleur Jaune */
 .jaune {
-	background-color: rgba(255,202,67,0.5);
+	background-color: rgba(255,255,0,0.8);
 }
 
 .jaune >.panel-heading {
-	background-color: rgba(255,202,67,1);
+	background-color: rgba(255,255,0,1);
 }
 
 /* Couleur Violet */
 .violet {
-	background-color: rgba(163,0,90,0.5);
+	background-color: rgba(161,6,132,0.8);
 }
 
 .violet >.panel-heading {
-	background-color: rgba(163,0,90,1);
+	background-color: rgba(161,6,132,1);
 }
 
 /* Couleur Rose */
 .rose {
-	background-color: rgba(242,0,136,0.5);
+	background-color: rgba(253,63,146,0.8);
 }
 
 .rose >.panel-heading {
-	background-color: rgba(242,0,136,1);
+	background-color: rgba(253,63,146,1);
 }
 
 /* Couleur Vert */
 .vert {
-	background-color: rgba(0,166,90,0.5);
+	background-color: rgba(0,255,0,0.8);
 }
 
 .vert >.panel-heading {
-	background-color: rgba(0,166,90,1);
+	background-color: rgba(0,255,0,1);
 }
 
 /* Couleur Marron */
 .marron {
-	background-color: rgba(126,45,7,0.5);
+	background-color: rgba(88,41,0,0.8);
 }
 
 .marron >.panel-heading {
-	background-color: rgba(126,45,7,1);
+	background-color: rgba(88,41,0,1);
 }
 
 /* Couleur Bleu */
 .bleu {
-	background-color: rgba(0,115,183,0.5);
+	background-color: rgba(44,117,255,0.8);
 }
 
 .bleu >.panel-heading {
-	background-color: rgba(0,115,183,1);
+	background-color: rgba(44,117,255,1);
 }
 
 

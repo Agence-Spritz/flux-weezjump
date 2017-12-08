@@ -249,7 +249,7 @@ var FormPlugins = function () {
 			//handleFormPasswordIndicator();
 			//handleJqueryAutocomplete();
 			handleBootstrapCombobox();
-			handleSelectpicker();
+			//handleSelectpicker();
 			//handleTagsInput();
 			//handleJqueryTagIt();
 			//handleDateRangePicker();

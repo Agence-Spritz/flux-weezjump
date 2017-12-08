@@ -98,23 +98,23 @@ class CreneauServices {
             return $array_couleur[0];
     }
 
-    public function countPlacesRestantes(Creneau $creneau) {
-        $maximum = $creneau->getJour()->getMaximum();
-        $count = $maximum - $creneau->getQuantite();
-
-        if ($creneau->fini())
-            return '-';
-
-        $jourServices = $this->container->get('jour.services');
-        $creneaux_actifs = $jourServices->getCreneauxActifs($creneau->getJour());
-
-        if (in_array($creneau, $creneaux_actifs))
-            foreach ($creneaux_actifs as $creneau_actif) {
-                if ($creneau_actif == $creneau)
-                    continue;
-                $count = $count - $creneau_actif->getQuantite();
-            }
-        return $count;
-    }
+//    public function countPlacesRestantes(Creneau $creneau) {
+//        $maximum = $creneau->getJour()->getMaximum();
+//        $count = $maximum - $creneau->getQuantite();
+//
+//        if ($creneau->fini())
+//            return '-';
+//
+//        $jourServices = $this->container->get('jour.services');
+//        $creneaux_actifs = $jourServices->getCreneauxActifs($creneau->getJour());
+//
+//        if (in_array($creneau, $creneaux_actifs))
+//            foreach ($creneaux_actifs as $creneau_actif) {
+//                if ($creneau_actif == $creneau)
+//                    continue;
+//                $count = $count - $creneau_actif->getQuantite();
+//            }
+//        return $count;
+//    }
 
 }

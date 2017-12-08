@@ -115,6 +115,44 @@ class Creneau {
         return null;
     }
 
+    public function creneauPrecedent() {
+        if (!$this->getDebut())
+            return null;
+        $debutCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $this->getDebut()->format('Y-m-d H:i:s'));
+        $debutCreneau->modify('-30minutes');
+        foreach ($this->getJour()->getCreneaux() as $creneau) {
+            if ($creneau->getDebut() and $creneau->getDebut()->format('Y-m-d H:i:s') == $debutCreneau->format('Y-m-d H:i:s'))
+                return $creneau;
+        }
+    }
+
+    public function creneauSuivant() {
+        if (!$this->getDebut())
+            return null;
+        $debutCreneau = DateTime::createFromFormat('Y-m-d H:i:s', $this->getDebut()->format('Y-m-d H:i:s'));
+        $debutCreneau->modify('+30minutes');
+        foreach ($this->getJour()->getCreneaux() as $creneau) {
+            if ($creneau->getDebut() and $creneau->getDebut()->format('Y-m-d H:i:s') == $debutCreneau->format('Y-m-d H:i:s'))
+                return $creneau;
+        }
+    }
+
+    public function countPlacesRestantesPremiereMoitie() {
+        $creneauPrecedent = $this->creneauPrecedent();
+        if ($creneauPrecedent and $creneauPrecedent->getActive()) {
+            return round(($this->getJour()->getMaximum() - $creneauPrecedent->getQuantite() - $this->getQuantite()), 0);
+        }
+        return $this->getJour()->getMaximum();
+    }
+
+    public function countPlacesRestantesDeuxiemeMoitie() {
+        $creneauSuivant = $this->creneauSuivant();
+        if ($creneauSuivant and $creneauSuivant->getActive()) {
+            return round(($this->getJour()->getMaximum() - $creneauSuivant->getQuantite() - $this->getQuantite()), 0);
+        }
+        return $this->getJour()->getMaximum();
+    }
+
     /**
      * Get id
      *

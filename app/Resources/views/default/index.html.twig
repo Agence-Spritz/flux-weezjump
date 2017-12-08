@@ -8,129 +8,129 @@
 {% block content %}
     <!-- begin #content -->
     <div id="content" class="content">
-	    <div class="en-tete">
-	        <!-- begin breadcrumb -->
-	        <ol class="breadcrumb pull-right">
-	            <li><a href="">Accueil</a></li>
-	            <li class="active">Tableau de bord</li>
-	        </ol>
-	        <!-- end breadcrumb -->
-	        <!-- begin page-header -->
-	        <h1 class="page-header">Tableau de bord</h1>
-	        <!-- end page-header -->
-	
-	        <!-- begin row : Première ligne -->
-	        <div class="row">
-	
-	            <!-- begin col-6 -->
-	            <div class="col-md-6 col-sm-12">
-	                <ul class="nav nav-tabs">
-	                    <li class="active"><a href="#default-tab-1" data-toggle="tab">Date du jour</a></li>
-	                    <li class=""><a href="#default-tab-2" data-toggle="tab">Détails entrées</a></li>
-	                </ul>
-	                <div class="tab-content">
-	                    <div class="tab-pane fade active in" id="default-tab-1">
-	                        <div class="panel-body panel-form">
-	                            <form method="GET" action="" class="form-horizontal form-bordered" id="form_jour_date">
-	                                <div class="form-group">
-	                                    <label class="control-label col-md-4">Nous sommes le</label>
-	                                    <div class="col-md-8">
-	                                        <div class="input-group date" id="datetimepicker_jour">
-	                                            <input type="text" class="form-control" value="{{ jour.day|date('Y-m-d') }}" id="form_jour_date_input"/>
-	                                            <span class="input-group-addon">
-	                                                <span class="glyphicon glyphicon-calendar"></span>
-	                                            </span>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </form>
-	                        </div>
-	                    </div>
-	                    <div class="tab-pane fade" id="default-tab-2">
-	                        <table class="table">
-	                            <thead>
-	                                <tr>
-	                                    <th>Type d'entrée</th>
-	                                    <th>Quantité</th>
-	                                </tr>
-	                            </thead>
-	                            <tbody>
-	                                <tr>
-	                                    <td>Entrées totales</td>
-	                                    <td><a href="#" class="btn btn-sm btn-default" >{{ jour.getTotalDuJour() }}</a></td>
-	                                </tr>
-	                                <tr>
-	                                    <td>Sessions</td>
-	                                    <td><a href="#" class="btn btn-sm btn-default" >{{ jour.countCreneauxPasses }} / {{ jour.countCreneaux }}</a></td>
-	                                </tr>
-	                                {% for categorie in categories %}
-	                                    <tr>
-	                                        <td>{{ categorie.getName|capitalize }}</td>
-	                                        <td><a href="#" class="btn btn-sm btn-success" >{{ jour.getQuantite(categorie.getSymbole) }}</a></td>
-	                                    </tr>
-	                                {% endfor %}
-	                            </tbody>
-	                        </table>						
-	                    </div>
-	                </div>
-	
-	            </div>
-	
-	            <div class="col-md-3 col-sm-6">
-	                <div class="widget widget-stats bg-purple">
-	                    <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
-	                    <div class="stats-title">VISITEURS ACTIFS</div>
-	                    <div class="stats-number">{{ jour_services.countVisiteursActifs(jour) }}</div>
-	                    <div class="stats-progress progress">
-	                        {% set pourcentage_total = jour_services.countVisiteursActifs(jour) / jour.getTotalMaximumDuJour * 100 %}
-	                        <div class="progress-bar" style="width: {{ pourcentage_total }}%;"></div>
-	                    </div>
-	                    <div class="stats-desc">Total du jour : {{ jour_services.totalDuJour(jour) }}</div>
-	                </div>
-	            </div>
-	            <div class="col-md-3 col-sm-6">
-	                <div class="widget widget-stats bg-purple">
-	                    <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
-	                    <div class="stats-title">PLACES RESTANTES</div>
-	                    <div class="stats-number">
-	                        {% set places_restantes = (jour.getMaximum - jour_services.countVisiteursActifs(jour))  %}
-	                        {{ places_restantes > 0 ? places_restantes : 0 }}
-	                    </div>
-	                    <div class="stats-progress progress">
-	                        {% set pourcentage_restant = (jour_services.countVisiteursActifs(jour) / jour.getMaximum * 100)  %}
-	                        <div class="progress-bar" style="width: {{ pourcentage_restant }}%;"></div>
-	                    </div>
-	                    <div class="stats-desc">
-	                        <a href="{{ path('jour_edit', { 'id' : jour.id } ) }}" class="jour_quantite" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a>
-	                    </div>
-	                </div>
-	            </div>
-	
-	        </div>
-	        <!-- end row -->
-	    </div>
-	    
-	    <div class="calendrier">
+        <div class="en-tete">
+            <!-- begin breadcrumb -->
+            <ol class="breadcrumb pull-right">
+                <li><a href="">Accueil</a></li>
+                <li class="active">Tableau de bord</li>
+            </ol>
+            <!-- end breadcrumb -->
+            <!-- begin page-header -->
+            <h1 class="page-header">Tableau de bord</h1>
+            <!-- end page-header -->
 
-	        <!-- Titre calendrier -->
-	        <h3>Vos créneaux</h3>
-	        <p class="m-b-20">
-	            Ci-dessous la liste des créneaux configurés pour la journée en cours. Vous pouvez modifier, mettre en sommeil et réactiver les créneaux de votre choix.
-	        </p>
-	
-	        <!-- begin row : Ligne calendrier -->
-	        <div class="row">
-	
-	            <!-- The Modal : Popup permettant de choisir la quantité de personnes à enregistrer -->
-	            <div class="modal fade" id="myModal" role="dialog"></div>
-	
-	            {% for creneau in jour.getCreneaux %}
-	                {{ render(controller('AppBundle:Creneau:show', { 'id': creneau.id } )) }}
-	            {% endfor %}
-	
-	
-	        </div>
-	        <!-- end row -->
+            <!-- begin row : Première ligne -->
+            <div class="row">
+
+                <!-- begin col-6 -->
+                <div class="col-md-6 col-sm-12">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#default-tab-1" data-toggle="tab">Date du jour</a></li>
+                        <li class=""><a href="#default-tab-2" data-toggle="tab">Détails entrées</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="default-tab-1">
+                            <div class="panel-body panel-form">
+                                <form method="GET" action="" class="form-horizontal form-bordered" id="form_jour_date">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Nous sommes le</label>
+                                        <div class="col-md-8">
+                                            <div class="input-group date" id="datetimepicker_jour">
+                                                <input type="text" class="form-control" value="{{ jour.day|date('Y-m-d') }}" id="form_jour_date_input"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="default-tab-2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Type d'entrée</th>
+                                        <th>Quantité</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Entrées totales</td>
+                                        <td><a href="#" class="btn btn-sm btn-default" >{{ jour.getTotalDuJour() }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sessions</td>
+                                        <td><a href="#" class="btn btn-sm btn-default" >{{ jour.countCreneauxPasses }} / {{ jour.countCreneaux }}</a></td>
+                                    </tr>
+                                    {% for categorie in categories %}
+                                        <tr>
+                                            <td>{{ categorie.getName|capitalize }}</td>
+                                            <td><a href="#" class="btn btn-sm btn-success" >{{ jour.getQuantite(categorie.getSymbole) }}</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>						
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-purple">
+                        <div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
+                        <div class="stats-title">VISITEURS ACTIFS</div>
+                        <div class="stats-number">{{ jour_services.countVisiteursActifs(jour) }}</div>
+                        <div class="stats-progress progress">
+                            {% set pourcentage_total = jour_services.countVisiteursActifs(jour) / jour.getTotalMaximumDuJour * 100 %}
+                            <div class="progress-bar" style="width: {{ pourcentage_total }}%;"></div>
+                        </div>
+                        <div class="stats-desc">Total du jour : {{ jour_services.totalDuJour(jour) }}</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-purple">
+                        <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
+                        <div class="stats-title">PLACES RESTANTES</div>
+                        <div class="stats-number">
+                            {% set places_restantes = (jour.getMaximum - jour_services.countVisiteursActifs(jour))  %}
+                            {{ places_restantes > 0 ? places_restantes : 0 }}
+                        </div>
+                        <div class="stats-progress progress">
+                            {% set pourcentage_restant = (jour_services.countVisiteursActifs(jour) / jour.getMaximum * 100)  %}
+                            <div class="progress-bar" style="width: {{ pourcentage_restant }}%;"></div>
+                        </div>
+                        <div class="stats-desc">
+                            <a href="{{ path('jour_edit', { 'id' : jour.id } ) }}" class="jour_quantite" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end row -->
+        </div>
+
+        <div class="calendrier">
+
+            <!-- Titre calendrier -->
+            <h3>Vos créneaux</h3>
+            <p class="m-b-20">
+                Ci-dessous la liste des créneaux configurés pour la journée en cours. Vous pouvez modifier, mettre en sommeil et réactiver les créneaux de votre choix.
+            </p>
+
+            <!-- begin row : Ligne calendrier -->
+            <div class="row">
+
+                <!-- The Modal : Popup permettant de choisir la quantité de personnes à enregistrer -->
+                <div class="modal fade" id="myModal" role="dialog"></div>
+
+                {% for creneau in jour.getCreneaux %}
+                    {{ render(controller('AppBundle:Creneau:show', { 'id': creneau.id } )) }}
+                {% endfor %}
+
+
+            </div>
+            <!-- end row -->
         </div>
     </div>
     <!-- end #content -->
@@ -192,7 +192,9 @@
                         $('#myModal').empty().modal('hide');
                         window.location.reload();
                     },
-                    error: function (xhr) {
+                    error: function (error_xhr) {
+                        if (error_xhr.responseText)
+                            $('#myModal').empty().html(error_xhr.responseText);
                     }
                 });
             });

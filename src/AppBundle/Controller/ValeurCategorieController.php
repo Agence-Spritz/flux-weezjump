@@ -9,6 +9,8 @@ use AppBundle\Entity\ValeurCategorie;
 use AppBundle\Entity\Categorie;
 use AppBundle\Entity\Creneau;
 use AppBundle\Form\ValeurCategorieType;
+use Symfony\Component\Form\FormError;
+
 /**
  * Valeurcategorie controller.
  *
@@ -38,10 +40,10 @@ class ValeurCategorieController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $creneau = $em->getRepository('AppBundle:Creneau')->find($id_creneau);
         $categorie = $em->getRepository('AppBundle:Categorie')->find($id_categorie);
-        
-        if(!$creneau or !$categorie)
+
+        if (!$creneau or ! $categorie)
             return new Response('', 404);
-        
+
         $valeurCategorie = $em->getRepository('AppBundle:ValeurCategorie')->findOneBy(array('creneau' => $creneau, 'categorie' => $categorie));
         if (!$valeurCategorie) {
             $valeurCategorie = new Valeurcategorie();
@@ -57,6 +59,7 @@ class ValeurCategorieController extends Controller {
         return $this->render('valeurcategorie/edit.html.twig', array(
                     'valeurCategorie' => $valeurCategorie,
                     'categorie' => $categorie,
+                    'creneau' => $creneau,
                     'form' => $form->createView(),
         ));
     }
@@ -86,11 +89,25 @@ class ValeurCategorieController extends Controller {
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $valeurCategorie->setQuantite($valeurCategorie->getQuantite() + $editForm->get('quantite')->getData());
+            $creneau = $valeurCategorie->getCreneau();
+            $categorie = $valeurCategorie->getCategorie();
+            $quantite = $valeurCategorie->getQuantite() + $editForm->get('quantite')->getData();
+
+            if ($quantite > $creneau->countPlacesRestantesPremiereMoitie() OR $quantite > $creneau->countPlacesRestantesDeuxiemeMoitie()) {
+                $editForm->addError(new FormError('Il ne reste pas assez de places !'));
+                return $this->render('valeurcategorie/edit.html.twig', array(
+                            'valeurCategorie' => $valeurCategorie,
+                            'categorie' => $categorie,
+                            'creneau' => $creneau,
+                            'form' => $editForm->createView(),
+                ), new Response('', 403));
+            }
+
+            $valeurCategorie->setQuantite($quantite);
             $em->persist($valeurCategorie);
             $em->flush();
         }
-        
+
         return new Response('', 200);
 
 //        return $this->render('valeurcategorie/edit.html.twig', array(
@@ -130,12 +147,11 @@ class ValeurCategorieController extends Controller {
                         ->getForm()
         ;
     }
-    
-    
+
     private function createEditForm(ValeurCategorie $valeurCategorie) {
-       return $this->createForm(ValeurCategorieType::class, $valeurCategorie, array(
-            'action' => $this->generateUrl('valeurcategorie_edit', array('id' => $valeurCategorie->getId())),
-            'method' => 'POST',
+        return $this->createForm(ValeurCategorieType::class, $valeurCategorie, array(
+                    'action' => $this->generateUrl('valeurcategorie_edit', array('id' => $valeurCategorie->getId())),
+                    'method' => 'POST',
         ));
     }
 

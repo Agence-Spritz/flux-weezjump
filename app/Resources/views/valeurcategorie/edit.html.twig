@@ -7,10 +7,15 @@
         <div class="modal-body">
             <p>Veuillez choisir la quantité de participants à enregistrer pour la session choisie.</p>
             <p><strong>Type sélectionné : </strong>{{ categorie }}</p>
+            <p><strong>1ère 30 min reste : </strong>{{ creneau.countPlacesRestantesPremiereMoitie }}</p>
+            <p><strong>2ème 30 min reste : </strong>{{ creneau.countPlacesRestantesDeuxiemeMoitie }}</p>
 
         </div>
         <div class="modal-footer">
             {{ form_start(form) }}
+            <div class="col-md-12 text-danger">
+                {{ form_errors(form) }}  
+            </div>
             <div class="col-md-12">
                 <div class="input-group number-spinner">
                     <span class="input-group-btn">

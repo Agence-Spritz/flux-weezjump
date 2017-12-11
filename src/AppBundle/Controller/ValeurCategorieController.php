@@ -91,16 +91,19 @@ class ValeurCategorieController extends Controller {
 
             $creneau = $valeurCategorie->getCreneau();
             $categorie = $valeurCategorie->getCategorie();
-            $quantite = $valeurCategorie->getQuantite() + $editForm->get('quantite')->getData();
+            $quantite_form = $editForm->get('quantite')->getData();
+            $quantite = $valeurCategorie->getQuantite() + $quantite_form;
 
-            if ($quantite > $creneau->countPlacesRestantesPremiereMoitie() OR $quantite > $creneau->countPlacesRestantesDeuxiemeMoitie()) {
-                $editForm->addError(new FormError('Il ne reste pas assez de places !'));
-                return $this->render('valeurcategorie/edit.html.twig', array(
-                            'valeurCategorie' => $valeurCategorie,
-                            'categorie' => $categorie,
-                            'creneau' => $creneau,
-                            'form' => $editForm->createView(),
-                ), new Response('', 403));
+            if ($quantite_form > 0) {
+                if ($quantite > $creneau->countPlacesRestantesPremiereMoitie() OR $quantite > $creneau->countPlacesRestantesDeuxiemeMoitie()) {
+                    $editForm->addError(new FormError('Il ne reste pas assez de places !'));
+                    return $this->render('valeurcategorie/edit.html.twig', array(
+                                'valeurCategorie' => $valeurCategorie,
+                                'categorie' => $categorie,
+                                'creneau' => $creneau,
+                                'form' => $editForm->createView(),
+                                    ), new Response('', 403));
+                }
             }
 
             $valeurCategorie->setQuantite($quantite);

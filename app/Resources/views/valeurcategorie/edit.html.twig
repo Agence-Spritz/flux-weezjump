@@ -13,9 +13,11 @@
         </div>
         <div class="modal-footer">
             {{ form_start(form) }}
-            <div class="col-md-12 text-danger">
-                <div class="alert alert-danger">{{ form_errors(form) }}</div>
-            </div>
+			{% if form_errors(form) is not empty %}
+				<div class="col-md-12 text-danger">
+					<div class="alert alert-danger">{{ form_errors(form) }}</div>
+				</div>
+			{% endif %}
             <div class="col-md-12">
                 <div class="input-group number-spinner">
                     <span class="input-group-btn">

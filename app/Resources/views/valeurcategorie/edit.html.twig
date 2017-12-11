@@ -2,19 +2,19 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Enregistrement participant</h4>
+            <h4 class="modal-title">Enregistrement participant(s)</h4>
         </div>
         <div class="modal-body">
             <p>Veuillez choisir la quantité de participants à enregistrer pour la session choisie.</p>
             <p><strong>Type sélectionné : </strong>{{ categorie }}</p>
-            <p><strong>1ère 30 min reste : </strong>{{ creneau.countPlacesRestantesPremiereMoitie > 0  ? creneau.countPlacesRestantesPremiereMoitie : 'Plus de places' }}</p>
-            <p><strong>2ème 30 min reste : </strong>{{ creneau.countPlacesRestantesDeuxiemeMoitie > 0  ? creneau.countPlacesRestantesDeuxiemeMoitie : 'Plus de places' }}</p>
+            <p><strong>1ère 30 min reste : </strong>{{ creneau.countPlacesRestantesPremiereMoitie > 0  ? creneau.countPlacesRestantesPremiereMoitie : 'Plus de place' }}</p>
+            <p><strong>2ème 30 min reste : </strong>{{ creneau.countPlacesRestantesDeuxiemeMoitie > 0  ? creneau.countPlacesRestantesDeuxiemeMoitie : 'Plus de place' }}</p>
 
         </div>
         <div class="modal-footer">
             {{ form_start(form) }}
             <div class="col-md-12 text-danger">
-                {{ form_errors(form) }}  
+                {{ form_errors(form) }}
             </div>
             <div class="col-md-12">
                 <div class="input-group number-spinner">

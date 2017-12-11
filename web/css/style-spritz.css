@@ -132,3 +132,15 @@ form.form-horizontal:after {
 z-index: 1050 ;
 }
 */
+
+.text-danger ul {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.text-danger li {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}

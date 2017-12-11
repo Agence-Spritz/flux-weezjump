@@ -82,6 +82,11 @@ class ValeurCategorieController extends Controller {
      *
      */
     public function editAction(Request $request, ValeurCategorie $valeurCategorie) {
+
+        $creneau = $valeurCategorie->getCreneau();
+        $countPlacesRestantesPremiereMoitie = $creneau->countPlacesRestantesPremiereMoitie();
+        $countPlacesRestantesDeuxiemeMoitie = $creneau->countPlacesRestantesDeuxiemeMoitie();
+
         $editForm = $this->createEditForm($valeurCategorie);
         $editForm->handleRequest($request);
 
@@ -89,13 +94,11 @@ class ValeurCategorieController extends Controller {
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $creneau = $valeurCategorie->getCreneau();
             $categorie = $valeurCategorie->getCategorie();
             $quantite_form = $editForm->get('quantite')->getData();
-            $quantite = $valeurCategorie->getQuantite() + $quantite_form;
-
             if ($quantite_form > 0) {
-                if ($quantite > $creneau->countPlacesRestantesPremiereMoitie() OR $quantite > $creneau->countPlacesRestantesDeuxiemeMoitie()) {
+                if ($quantite_form > $countPlacesRestantesPremiereMoitie OR $quantite_form > $countPlacesRestantesDeuxiemeMoitie) {
+
                     $editForm->addError(new FormError('Il ne reste pas assez de places !'));
                     return $this->render('valeurcategorie/edit.html.twig', array(
                                 'valeurCategorie' => $valeurCategorie,
@@ -106,17 +109,13 @@ class ValeurCategorieController extends Controller {
                 }
             }
 
+            $quantite = $valeurCategorie->getQuantite() + $quantite_form;
             $valeurCategorie->setQuantite($quantite);
             $em->persist($valeurCategorie);
             $em->flush();
         }
 
         return new Response('', 200);
-
-//        return $this->render('valeurcategorie/edit.html.twig', array(
-//                    'valeurCategorie' => $valeurCategorie,
-//                    'edit_form' => $editForm->createView(),
-//        ));
     }
 
     /**

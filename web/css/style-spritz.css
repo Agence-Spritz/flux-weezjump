@@ -144,3 +144,15 @@ z-index: 1050 ;
 	padding-left: 0;
 	margin-left: 0;
 }
+
+/*. Customisation liste select */
+button.btn.selectpicker {
+	background-color: #fff;
+	color: #000;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li>a {
+	line-height: 30px;
+	cursor: pointer;
+	font-weight: bold;
+}

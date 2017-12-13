@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
 
                     <div class="col-md-12 m-t-15">
-                        <select class="form-control select_categorie"  data-id_creneau="{{ creneau.id }}" {{ creneau.active ? '' : 'disabled="disable"' }}>
+                        <select class="form-control select_categorie selectpicker"  data-id_creneau="{{ creneau.id }}" {{ creneau.active ? '' : 'disabled="disable"' }}>
                             <option value="">Choisissez votre entrée</option>
                             {% for categorie in categories %}
                                 {% if not categorie.getHidden %}

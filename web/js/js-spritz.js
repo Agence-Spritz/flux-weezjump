@@ -45,3 +45,11 @@ var Notification = function () {
         }
     };
 }();
+
+// Permet de modifier les listes select
+jQuery('.selectpicker')
+    .selectpicker({
+    size: false
+  })
+  .siblings('.dropdown-menu')
+  .addClass('list-deroulante'); //replace panel__ddown with your custom class

@@ -137,22 +137,6 @@ class Creneau {
         }
     }
 
-    public function countPlacesRestantesPremiereMoitie() {
-        $creneauPrecedent = $this->creneauPrecedent();
-        if ($creneauPrecedent and $creneauPrecedent->getActive()) {
-            return round(($this->getJour()->getMaximum() - $creneauPrecedent->getQuantite() - $this->getQuantite()), 0);
-        }
-        return round(($this->getJour()->getMaximum() - $this->getQuantite()), 0);
-    }
-
-    public function countPlacesRestantesDeuxiemeMoitie() {
-        $creneauSuivant = $this->creneauSuivant();
-        if ($creneauSuivant and $creneauSuivant->getActive()) {
-            return round(($this->getJour()->getMaximum() - $creneauSuivant->getQuantite() - $this->getQuantite()), 0);
-        }
-        return round(($this->getJour()->getMaximum() - $this->getQuantite()), 0);
-    }
-
     /**
      * Get id
      *

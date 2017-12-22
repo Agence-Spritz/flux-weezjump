@@ -84,8 +84,9 @@ class ValeurCategorieController extends Controller {
     public function editAction(Request $request, ValeurCategorie $valeurCategorie) {
 
         $creneau = $valeurCategorie->getCreneau();
-        $countPlacesRestantesPremiereMoitie = $creneau->countPlacesRestantesPremiereMoitie();
-        $countPlacesRestantesDeuxiemeMoitie = $creneau->countPlacesRestantesDeuxiemeMoitie();
+        $creneauServices = $this->get('creneau.services');
+        $countPlacesRestantesPremiereMoitie = $creneauServices->countPlacesRestantesPremiereMoitie($creneau);
+        $countPlacesRestantesDeuxiemeMoitie = $creneauServices->countPlacesRestantesDeuxiemeMoitie($creneau);
 
         $editForm = $this->createEditForm($valeurCategorie);
         $editForm->handleRequest($request);

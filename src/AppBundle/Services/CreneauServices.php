@@ -98,23 +98,29 @@ class CreneauServices {
             return $array_couleur[0];
     }
 
-//    public function countPlacesRestantes(Creneau $creneau) {
-//        $maximum = $creneau->getJour()->getMaximum();
-//        $count = $maximum - $creneau->getQuantite();
-//
-//        if ($creneau->fini())
-//            return '-';
-//
-//        $jourServices = $this->container->get('jour.services');
-//        $creneaux_actifs = $jourServices->getCreneauxActifs($creneau->getJour());
-//
-//        if (in_array($creneau, $creneaux_actifs))
-//            foreach ($creneaux_actifs as $creneau_actif) {
-//                if ($creneau_actif == $creneau)
-//                    continue;
-//                $count = $count - $creneau_actif->getQuantite();
-//            }
-//        return $count;
-//    }
+    public function checkQuantiteReserveeCreneau(Creneau $creneau) {
+        $weezjumpResaServices = $this->container->get('weezjump.resa.services');
+        return $weezjumpResaServices->checkQuantiteReserveeCreneau($creneau);
+    }
+
+    public function countPlacesRestantesPremiereMoitie(Creneau $creneau) {
+        $creneauPrecedent = $creneau->creneauPrecedent();
+        $quantite_reservee = $this->checkQuantiteReserveeCreneau($creneau);
+        if ($creneauPrecedent and $creneauPrecedent->getActive()) {
+            $quantite_reservee_creneau_precedent = $this->checkQuantiteReserveeCreneau($creneauPrecedent);
+            return round(($creneau->getJour()->getMaximum() - $creneauPrecedent->getQuantite() - $creneau->getQuantite() - $quantite_reservee - $quantite_reservee_creneau_precedent), 0);
+        }
+        return round(($creneau->getJour()->getMaximum() - $creneau->getQuantite() - $quantite_reservee), 0);
+    }
+
+    public function countPlacesRestantesDeuxiemeMoitie(Creneau $creneau) {
+        $creneauSuivant = $creneau->creneauSuivant();
+        $quantite_reservee = $this->checkQuantiteReserveeCreneau($creneau);
+        if ($creneauSuivant and $creneauSuivant->getActive()) {
+            $quantite_reservee_creneau_suivant = $this->checkQuantiteReserveeCreneau($creneauSuivant);
+            return round(($creneau->getJour()->getMaximum() - $creneauSuivant->getQuantite() - $creneau->getQuantite() - $quantite_reservee - $quantite_reservee_creneau_suivant), 0);
+        }
+        return round(($creneau->getJour()->getMaximum() - $creneau->getQuantite() - $quantite_reservee), 0);
+    }
 
 }

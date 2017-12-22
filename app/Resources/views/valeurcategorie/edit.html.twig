@@ -7,8 +7,10 @@
         <div class="modal-body">
             <p>Veuillez choisir la quantité de participants à enregistrer pour la session choisie.</p>
             <p><strong>Type sélectionné : </strong>{{ categorie }}</p>
-            <p><strong>1ère 30 min reste : </strong>{{ creneau.countPlacesRestantesPremiereMoitie > 0  ? creneau.countPlacesRestantesPremiereMoitie : 'Plus de place' }}</p>
-            <p><strong>2ème 30 min reste : </strong>{{ creneau.countPlacesRestantesDeuxiemeMoitie > 0  ? creneau.countPlacesRestantesDeuxiemeMoitie : 'Plus de place' }}</p>
+            {% set countPlacesRestantesPremiereMoitie = creneau_services.countPlacesRestantesPremiereMoitie(creneau) %}
+            {% set countPlacesRestantesDeuxiemeMoitie = creneau_services.countPlacesRestantesDeuxiemeMoitie(creneau) %}
+            <p><strong>1ère 30 min reste : </strong>{{ countPlacesRestantesPremiereMoitie > 0  ? countPlacesRestantesPremiereMoitie : 'Plus de place' }}</p>
+            <p><strong>2ème 30 min reste : </strong>{{ countPlacesRestantesDeuxiemeMoitie > 0  ? countPlacesRestantesDeuxiemeMoitie : 'Plus de place' }}</p>
 
         </div>
         <div class="modal-footer">

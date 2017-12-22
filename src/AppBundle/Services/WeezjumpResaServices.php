@@ -103,7 +103,7 @@ class WeezjumpResaServices {
 
         $sql = "SELECT SUM(nbClient) AS nbClient 
                 FROM reservationClient 
-                WHERE dateResa = '" . $dateTimeDebut->format('Y-m-d') . "' AND heureResa = '" . $dateTimeDebut->format('H:i:s') . "';";
+                WHERE resaDone = 1 AND dateResa = '" . $dateTimeDebut->format('Y-m-d') . "' AND heureResa = '" . $dateTimeDebut->format('H:i:s') . "';";
 
         $result = mysql_query($sql, $this->connection);
         while ($row = mysql_fetch_assoc($result)) {

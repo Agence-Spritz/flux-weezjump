@@ -21,6 +21,10 @@ img.logo-top {
 	color: #ffffff;
 }
 
+.panel-title {
+	font-size: 16px;
+}
+
 /* Couleur rouge */
 .rouge {
 	background-color: rgba(229,8,8,0.8);
@@ -68,11 +72,11 @@ img.logo-top {
 
 /* Couleur Vert */
 .vert {
-	background-color: rgba(0,255,0,0.8);
+	background-color: rgba(58,242,75,0.8);
 }
 
 .vert >.panel-heading {
-	background-color: rgba(0,255,0,1);
+	background-color: rgba(58,242,75,1);
 }
 
 /* Couleur Marron */
@@ -103,6 +107,21 @@ img.logo-top {
 .grisee >.panel-heading {
 	background-color: rgba(204,204,204,1);
 	color: #eee;
+}
+
+.btn-warning.places-restantes {
+
+}
+
+.btn-warning, .btn-warning:active, .btn-warning:focus, .btn-warning:hover {
+	background: #f59c1a;
+	background-color: #f59c1a;
+	border-color: #f59c1a;
+	cursor: default;
+}
+
+.btn-group .btn.btn-warning:not(.active) + .btn.btn-warning, .input-group-btn .btn.btn-warning:not(.active) + .btn.btn-warning {
+    border-left-color: #f59c1a
 }
 
 

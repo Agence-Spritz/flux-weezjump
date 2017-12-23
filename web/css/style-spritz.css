@@ -129,28 +129,30 @@ form.form-horizontal:after {
 	display: none;
 }
 
-/*
-.content .en-tete {
- 	position: fixed;
-	height: 230px;
-	padding-right: 25px;
-	top: 53px;
-	padding-top: 25px;
-	background-color: #dae0e6;
-	z-index: 10;
-	border-bottom: 2px solid #eee;
+@media screen and (min-width: 768px) {
+	.content .en-tete {
+	 	position: fixed;
+		height: 230px;
+		top: 53px;
+		padding-top: 25px;
+		background-color: #dae0e6;
+		z-index: 10;
+		border-bottom: 2px solid #eee;
+		width: 100%;
+	padding-right: 270px;
+	}
+	
+	.content .calendrier {
+		margin-top: 250px;
+		position: relative;
+	
+	}
+	
+	.modal {
+	z-index: 1050 ;
+	}
 }
 
-.content .calendrier {
-	margin-top: 250px;
-	position: relative;
-
-}
-
-.modal {
-z-index: 1050 ;
-}
-*/
 
 .text-danger ul {
 	list-style: none;

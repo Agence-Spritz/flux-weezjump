@@ -109,8 +109,8 @@ img.logo-top {
 	color: #eee;
 }
 
-.btn-warning.places-restantes {
-
+.en-cours {
+	box-shadow: 1px 1px 12px #000;
 }
 
 .btn-warning, .btn-warning:active, .btn-warning:focus, .btn-warning:hover {

@@ -136,6 +136,18 @@ class Creneau {
                 return $creneau;
         }
     }
+    
+    public function enCours(){
+        if (!$this->getDebut())
+            return false;
+        if (!$this->getFin())
+            return false;
+        if($this->getFin()->format('U') < date('U'))
+            return false;
+        if($this->getDebut()->format('U') > date('U'))
+            return false;
+        return true;
+    }
 
     /**
      * Get id

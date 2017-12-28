@@ -7,19 +7,22 @@
         <div class="modal-body">
             <p>Veuillez choisir la quantité de participants à enregistrer pour la session choisie.</p>
             <p><strong>Type sélectionné : </strong>{{ categorie }}</p>
-            {% set countPlacesRestantesPremiereMoitie = creneau_services.countPlacesRestantesPremiereMoitie(creneau) %}
+            {#{% set countPlacesRestantesPremiereMoitie = creneau_services.countPlacesRestantesPremiereMoitie(creneau) %}
             {% set countPlacesRestantesDeuxiemeMoitie = creneau_services.countPlacesRestantesDeuxiemeMoitie(creneau) %}
             <p><strong>1ère 30 min reste : </strong>{{ countPlacesRestantesPremiereMoitie > 0  ? countPlacesRestantesPremiereMoitie : 'Plus de place' }}</p>
             <p><strong>2ème 30 min reste : </strong>{{ countPlacesRestantesDeuxiemeMoitie > 0  ? countPlacesRestantesDeuxiemeMoitie : 'Plus de place' }}</p>
+#}
+            {% set countPlacesRestantes = creneau_services.countPlacesRestantes(creneau) %}
+            <p><strong>Reste : </strong>{{ countPlacesRestantes > 0  ? countPlacesRestantes : 'Plus de place' }}</p>
 
         </div>
         <div class="modal-footer">
             {{ form_start(form) }}
-			{% if form_errors(form) is not empty %}
-				<div class="col-md-12 text-danger">
-					<div class="alert alert-danger">{{ form_errors(form) }}</div>
-				</div>
-			{% endif %}
+            {% if form_errors(form) is not empty %}
+                <div class="col-md-12 text-danger">
+                    <div class="alert alert-danger">{{ form_errors(form) }}</div>
+                </div>
+            {% endif %}
             <div class="col-md-12">
                 <div class="input-group number-spinner">
                     <span class="input-group-btn">

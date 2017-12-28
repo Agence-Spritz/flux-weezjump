@@ -85,8 +85,7 @@ class ValeurCategorieController extends Controller {
 
         $creneau = $valeurCategorie->getCreneau();
         $creneauServices = $this->get('creneau.services');
-        $countPlacesRestantesPremiereMoitie = $creneauServices->countPlacesRestantesPremiereMoitie($creneau);
-        $countPlacesRestantesDeuxiemeMoitie = $creneauServices->countPlacesRestantesDeuxiemeMoitie($creneau);
+        $countPlacesRestantes = $creneauServices->countPlacesRestantes($creneau);
 
         $editForm = $this->createEditForm($valeurCategorie);
         $editForm->handleRequest($request);
@@ -98,7 +97,7 @@ class ValeurCategorieController extends Controller {
             $categorie = $valeurCategorie->getCategorie();
             $quantite_form = $editForm->get('quantite')->getData();
             if ($quantite_form > 0) {
-                if ($quantite_form > $countPlacesRestantesPremiereMoitie OR $quantite_form > $countPlacesRestantesDeuxiemeMoitie) {
+                if ($quantite_form > $countPlacesRestantes) {
 
                     $editForm->addError(new FormError('Il ne reste pas assez de places !'));
                     return $this->render('valeurcategorie/edit.html.twig', array(

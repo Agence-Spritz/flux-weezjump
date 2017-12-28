@@ -123,4 +123,9 @@ class CreneauServices {
         return round(($creneau->getJour()->getMaximum() - $creneau->getQuantite() - $quantite_reservee), 0);
     }
 
+    public function countPlacesRestantes(Creneau $creneau) {
+        $array = array($this->countPlacesRestantesPremiereMoitie($creneau), $this->countPlacesRestantesDeuxiemeMoitie($creneau));
+        return min($array);
+    }
+
 }

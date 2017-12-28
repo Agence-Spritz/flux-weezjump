@@ -12,11 +12,14 @@ class JourServices {
     private $em;
     private $container;
     private $token_storage;
+    private $creneauServices;
 
     function __construct(EntityManager $em, Container $container, TokenStorageInterface $token_storage) {
         $this->em = $em;
         $this->container = $container;
         $this->token_storage = $token_storage;
+        $this->creneauServices = $this->container->get('creneau.services');
+        ;
     }
 
     public function creerJour(\DateTime $date = null) {
@@ -72,15 +75,19 @@ class JourServices {
 
     public function countVisiteursActifs(Jour $jour) {
         $count = 0;
-        foreach ($this->getCreneauxActifs($jour) as $creneau)
+        foreach ($this->getCreneauxActifs($jour) as $creneau) {
             $count = $count + $creneau->getQuantite();
+            $count = $count + $this->creneauServices->checkQuantiteReserveeCreneau($creneau);
+        }
         return $count;
     }
 
     public function totalDuJour(Jour $jour) {
         $count = 0;
-        foreach ($this->getCreneauxActifs($jour, true) as $creneau)
+        foreach ($this->getCreneauxActifs($jour, true) as $creneau) {
             $count = $count + $creneau->getQuantite();
+            $count = $count + $this->creneauServices->checkQuantiteReserveeCreneau($creneau);
+        }
         return $count;
     }
 

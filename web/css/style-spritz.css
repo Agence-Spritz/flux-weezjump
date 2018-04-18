@@ -22,7 +22,11 @@ img.logo-top {
 }
 
 .panel-title {
-	font-size: 16px;
+	font-size: 18px;
+}
+
+.creneau .panel-body {
+	padding-bottom: 5px;
 }
 
 /* Couleur rouge */
@@ -130,6 +134,7 @@ form.form-horizontal:after {
 }
 
 @media screen and (min-width: 768px) {
+/*
 	.content .en-tete {
 	 	position: fixed;
 		height: 230px;
@@ -147,6 +152,7 @@ form.form-horizontal:after {
 		position: relative;
 	
 	}
+*/
 	
 	.modal {
 	z-index: 1050 ;

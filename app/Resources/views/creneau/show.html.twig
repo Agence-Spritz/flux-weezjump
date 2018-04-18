@@ -1,4 +1,4 @@
-<div class="col-md-4" id="creneau_{{ creneau.id }}">
+<div class="col-md-12" id="creneau_{{ creneau.id }}">
     {% set couleur = creneau.couleur %}
     <!-- begin panel -->
     <div class="panel creneau {{ couleur }} {{ creneau.active ? '' : 'grisee' }} {{ creneau.enCours ? 'en-cours' : '' }}" >
@@ -12,19 +12,20 @@
         <div class="panel-body {{ couleur }} {{ creneau.active ? '' : 'grisee' }} text-white">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-md-6">
+                    {#<div class="col-md-6">
                         <div class="btn btn-sm btn-warning places-restantes">réservé : {{ weezjump_resa_services.checkQuantiteReserveeCreneau(creneau) }}</div>
-                    </div>
+                    </div>#}
                     {#<div class="col-md-6">
                         <div class="btn btn-sm btn-warning places-restantes">reste 1ère 30mn : {{ creneau_services.countPlacesRestantesPremiereMoitie(creneau) }}</div>
                     </div>#}
                     <div class="col-md-6">
+                        <div class="btn btn-sm btn-warning places-restantes">inscrits : {{ creneau.getQuantite() }}</div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="btn btn-sm btn-warning places-restantes">Reste : {{ creneau_services.countPlacesRestantes(creneau) }}</div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="col-md-6">
-                        <div class="btn btn-sm btn-warning places-restantes">inscrits : {{ creneau.getQuantite() }}</div>
-                    </div>
+                    
                     {#<div class="col-md-6">
                         <div class="btn btn-sm btn-warning places-restantes">reste 2ème 30mn : {{ creneau_services.countPlacesRestantesDeuxiemeMoitie(creneau) }}</div>
                     </div>#}

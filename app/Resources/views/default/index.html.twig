@@ -91,14 +91,14 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="widget widget-stats bg-purple">
                         <div class="stats-icon stats-icon-lg"><i class="fa fa-dashboard fa-fw"></i></div>
-                        <div class="stats-title">PLACES RESTANTES</div>
+                        <div class="stats-title">Quantité maxi autorisée</div>
                         <div class="stats-number">
                             {% set places_restantes = (jour.getMaximum - jour_services.countVisiteursActifs(jour))  %}
                             {{ places_restantes > 0 ? places_restantes : 0 }}
                         </div>
                         <div class="stats-progress progress">
-                            {% set pourcentage_restant = (jour_services.countVisiteursActifs(jour) / jour.getMaximum * 100)  %}
-                            <div class="progress-bar" style="width: {{ pourcentage_restant }}%;"></div>
+                            {% set pourcentage_restant = jour.getMaximum   %}
+                            <div class="progress-bar" style="width: 100%;"></div>
                         </div>
                         <div class="stats-desc">
                             <a href="{{ path('jour_edit', { 'id' : jour.id } ) }}" class="jour_quantite" title="Modifier la quantité de places maximale">Modifier la quantité maximale</a>

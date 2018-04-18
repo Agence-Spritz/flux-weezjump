@@ -1126,7 +1126,7 @@ var App = function () {
 			handelTooltipPopoverActivation();
 			handleScrollToTopButton();
 			handleAfterPageLoadAddClass();
-			handleDraggablePanel();
+			//handleDraggablePanel();
 		},
 		initLocalStorage: function() {
 		    handleLocalStorage();

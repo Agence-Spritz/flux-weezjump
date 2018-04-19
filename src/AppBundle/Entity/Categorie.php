@@ -73,6 +73,14 @@ class Categorie
     
     
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ord", type="integer", nullable=true)
+     */
+    private $ord;
+    
+    
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ValeurCategorie", mappedBy="categorie")
      * @ORM\OrderBy({"id" = "DESC"})
      * */
@@ -296,5 +304,29 @@ class Categorie
     public function getPayante()
     {
         return $this->payante;
+    }
+    
+    /**
+     * Set ord
+     *
+     * @param integer $ord
+     *
+     * @return Categorie
+     */
+    public function setOrd($ord)
+    {
+        $this->ord = $ord;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer
+     */
+    public function getOrd()
+    {
+        return $this->ord;
     }
 }

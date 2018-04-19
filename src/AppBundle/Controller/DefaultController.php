@@ -31,7 +31,7 @@ class DefaultController extends Controller {
         if (!$jour)
             return $this->redirectToRoute('fos_user_security_login');
 
-        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
+        $categories = $em->getRepository('AppBundle:Categorie')->findBy(array(), array('ord' => 'ASC'));
 
         return $this->render('default/index.html.twig', array(
                     'jour' => $jour,
@@ -61,7 +61,7 @@ class DefaultController extends Controller {
             return $this->redirectToRoute('fos_user_security_login');
 
         $creneaux = $em->getRepository('AppBundle:Creneau')->findByJour($jour);
-        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
+        $categories = $em->getRepository('AppBundle:Categorie')->findBy(array(), array('ord' => 'ASC'));
 
         return $this->render('default/statistiques.html.twig', array(
                     'jour' => $jour,

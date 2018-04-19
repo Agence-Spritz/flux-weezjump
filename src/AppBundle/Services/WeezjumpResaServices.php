@@ -94,6 +94,9 @@ class WeezjumpResaServices {
     }
 
     public function checkQuantiteReserveeCreneau(Creneau $creneau) {
+        
+        // annulation du check des reservations
+        return 0;
 
         $count = 0;
 

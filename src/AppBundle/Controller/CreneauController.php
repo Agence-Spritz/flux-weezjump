@@ -53,7 +53,7 @@ class CreneauController extends Controller {
      */
     public function showAction(Creneau $creneau) {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('AppBundle:Categorie')->findAll();
+        $categories = $em->getRepository('AppBundle:Categorie')->findBy(array(), array('ord' => 'ASC'));
 
         $em->refresh($creneau);
         
